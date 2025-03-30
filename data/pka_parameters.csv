@@ -1,0 +1,3 @@
+version,test_size,num_features,bond_features,hidden_dim,batch_size,num_epochs,lr,dropout,anneal_rate,save_path,model_path
+pka_gnn_v1,0.2,153,12,128,32,100,0.001,0.2,0.9,../results/,../models/
+pka_gnn_v2,0.2,153,12,256,32,200,0.0005,0.3,0.95,../results/,../models/ 
