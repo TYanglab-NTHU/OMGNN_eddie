@@ -10,4 +10,4 @@
 #SBATCH --output=../logs/job_output_%j.txt
 #SBATCH --error=../logs/job_error_%j.txt   
 
-python train_pka_model.py
+python -u train_pka_model.py --version pka_gnn_v5_2_dissociation_order
