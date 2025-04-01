@@ -10,4 +10,4 @@
 #SBATCH --output=../logs/job_output_%j.txt
 #SBATCH --error=../logs/job_error_%j.txt   
 
-python -u ../src/dissociation_order.py
+python -u ../src/dissociation_order.py --input ../data/nist_pka_data_2.csv --output ../data/nist_pka_data_2_order.csv
