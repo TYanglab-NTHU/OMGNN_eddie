@@ -24,22 +24,18 @@ sns.set(style="whitegrid")
 def debug_log(message, flush=True):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     print(f"[{timestamp}] {message}", flush=flush)
-
 # 繪製學習曲線函數
 def plot_learning_curves(history, save_path, version):
     """繪製並保存學習曲線"""
     debug_log("繪製學習曲線...")
-    # 設置字體支持
     plt.rcParams['font.sans-serif'] = ['Arial', 'Helvetica', 'DejaVu Sans']
-    plt.rcParams['axes.unicode_minus'] = False  # 解決負號顯示問題
-    
-    # 設置字體大小
+    plt.rcParams['axes.unicode_minus'] = False
     plt.rcParams.update({'font.size': 12})
     
     # 創建子圖
-    fig, axs = plt.subplots(2, 2, figsize=(18, 12))
+    fig, axs = plt.subplots(3, 2, figsize=(18, 18))  # 增加為3行2列
     
-    # 1. 損失曲線
+    # 1. 總損失曲線
     axs[0, 0].plot(history['train_loss'], label='Training Combined Loss', color='blue', linewidth=2)
     axs[0, 0].plot(history['test_loss'], label='Testing Combined Loss', color='red', linewidth=2)
     axs[0, 0].set_title('Combined Loss Curve')
@@ -66,14 +62,31 @@ def plot_learning_curves(history, save_path, version):
     axs[1, 0].legend()
     axs[1, 0].grid(True)
     
-    # 4. 準確率曲線
-    axs[1, 1].plot(history['train_accuracy'], label='Training Accuracy', color='blue', linewidth=2)
-    axs[1, 1].plot(history['test_accuracy'], label='Testing Accuracy', color='red', linewidth=2)
-    axs[1, 1].set_title('Accuracy Curve')
+    # 4. 分類準確率曲線
+    axs[1, 1].plot(history['train_cls_accuracy'], label='Training Classification Accuracy', color='blue', linewidth=2)
+    axs[1, 1].plot(history['test_cls_accuracy'], label='Testing Classification Accuracy', color='red', linewidth=2)
+    axs[1, 1].set_title('Classification Accuracy Curve')
     axs[1, 1].set_xlabel('Epoch')
     axs[1, 1].set_ylabel('Accuracy')
     axs[1, 1].legend()
     axs[1, 1].grid(True)
+    
+    # 5. 回歸準確率曲線（新增）
+    axs[2, 0].plot(history['train_reg_accuracy'], label='Training Regression Accuracy', color='blue', linewidth=2)
+    axs[2, 0].plot(history['test_reg_accuracy'], label='Testing Regression Accuracy', color='red', linewidth=2)
+    axs[2, 0].set_title('Regression Accuracy Curve (Relative Error ≤10%)')
+    axs[2, 0].set_xlabel('Epoch')
+    axs[2, 0].set_ylabel('Accuracy')
+    axs[2, 0].legend()
+    axs[2, 0].grid(True)
+    
+    # 6. R²值曲線（新增）
+    axs[2, 1].plot(history['test_r2'], label='Testing R² Score', color='purple', linewidth=2)
+    axs[2, 1].set_title('R² Score Curve')
+    axs[2, 1].set_xlabel('Epoch')
+    axs[2, 1].set_ylabel('R² Score')
+    axs[2, 1].legend()
+    axs[2, 1].grid(True)
     
     # 設置整體標題
     plt.suptitle(f'Model {version} Training Process', fontsize=16)
@@ -89,13 +102,16 @@ def plot_learning_curves(history, save_path, version):
         ('loss', ['train_loss', 'test_loss'], 'Loss Value'),
         ('cls_loss', ['train_cls_loss', 'test_cls_acc'], 'Classification Loss'),
         ('reg_loss', ['train_reg_loss', 'test_reg_mse'], 'Regression Loss'),
-        ('accuracy', ['train_accuracy', 'test_accuracy'], 'Accuracy')
+        ('cls_accuracy', ['train_cls_accuracy', 'test_cls_accuracy'], 'Classification Accuracy'),
+        ('reg_accuracy', ['train_reg_accuracy', 'test_reg_accuracy'], 'Regression Accuracy'),
+        ('r2_score', ['test_r2'], 'R² Score')
     ]
     
     for curve_name, keys, ylabel in detailed_curves:
         plt.figure(figsize=(10, 6))
         plt.plot(history[keys[0]], label=f'Training {ylabel}', color='blue', linewidth=2)
-        plt.plot(history[keys[1]], label=f'Testing {ylabel}', color='red', linewidth=2)
+        if len(keys) > 1:  # 檢查是否有第二個鍵
+            plt.plot(history[keys[1]], label=f'Testing {ylabel}', color='red', linewidth=2)
         plt.title(f'{ylabel} Curve')
         plt.xlabel('Epoch')
         plt.ylabel(ylabel)
@@ -106,6 +122,7 @@ def plot_learning_curves(history, save_path, version):
         plt.close()
     
     debug_log("所有學習曲線繪製完成")
+    
 class EarlyStopping:
     """提前停止訓練的類"""
     def __init__(self, patience=10, min_delta=0, mode='min'):
@@ -290,10 +307,12 @@ if args.early_stopping:
 """
 # 初始化歷史記錄
 history = {
-    'train_loss': [], 'train_cls_loss': [], 'train_reg_loss': [], 'train_accuracy': [],
-    'test_loss': [], 'test_cls_acc': [], 'test_reg_mse': [], 'test_accuracy': [],
+    'train_loss': [], 'train_cls_loss': [], 'train_reg_loss': [], 
+    'train_cls_accuracy': [], 'train_reg_accuracy': [],  # 分開存儲分類和回歸準確率
+    'test_loss': [], 'test_cls_acc': [], 'test_reg_mse': [], 
+    'test_cls_accuracy': [], 'test_reg_accuracy': [],  # 分開存儲分類和回歸準確率
     'train_f1': [], 'test_f1': [], 'train_mae': [], 'test_mae': [], 'test_r2': [],
-    'train_order_loss': [], 'test_order_acc': []  # 新增：解離順序相關指標
+    'train_order_loss': [], 'test_order_acc': []
 }
 
 debug_log("="*80)
@@ -337,13 +356,12 @@ for epoch in range(config['num_epochs']):
         # 解析輸出 - 檢查是否包含解離順序損失
         if len(outputs) == 3:
             cls_preds, reg_preds, losses = outputs
-            if len(losses) == 4:
-                all_loss, cls_loss, reg_loss, accuracy = losses
-                order_loss = 0  # 不含順序損失
-            elif len(losses) == 5:
-                all_loss, cls_loss, reg_loss, order_loss, accuracy = losses
+            if len(losses) == 5:  # 更新為5個返回值
+                all_loss, cls_loss, reg_loss, cls_accuracy, reg_accuracy = losses
+                order_loss = 0
             else:
-                all_loss, cls_loss, reg_loss, accuracy = losses
+                all_loss, cls_loss, reg_loss, cls_accuracy = losses
+                reg_accuracy = 0
                 order_loss = 0
         else:
             debug_log(f"警告: 未知的模型輸出格式: {type(outputs)}")
@@ -366,7 +384,7 @@ for epoch in range(config['num_epochs']):
         # 檢查reg_loss是否為張量，如果是則使用item()，否則直接加
         reg_loss_value = reg_loss.item() if hasattr(reg_loss, 'item') else reg_loss
         total_reg_loss += reg_loss_value
-        total_accuracy += accuracy
+        total_accuracy += cls_accuracy
         
         # 累加解離順序損失（如果有）
         if order_loss != 0:
@@ -378,7 +396,7 @@ for epoch in range(config['num_epochs']):
         # 更新進度條
         train_pbar.set_postfix({
             'loss': f"{all_loss.item():.4f}",
-            'cls_acc': f"{accuracy:.4f}",
+            'cls_acc': f"{cls_accuracy:.4f}",
             'reg_loss': f"{reg_loss_value:.4f}"
         })
     
@@ -387,8 +405,29 @@ for epoch in range(config['num_epochs']):
     train_cls_loss = total_cls_loss / batch_count
     train_reg_loss = total_reg_loss / batch_count
     train_order_loss = total_order_loss / batch_count if batch_count > 0 else 0
-    train_accuracy = total_accuracy / batch_count
-    
+    train_cls_accuracy = total_accuracy / batch_count
+
+    # 計算訓練集的回歸準確率（相對誤差在10%以內的比例）
+    train_reg_accuracy = 0
+    if len(reg_preds) > 0 and hasattr(batch, 'pka_values'):
+        correct_predictions = 0
+        total_predictions = 0
+        for pred_info in reg_preds:
+            if isinstance(pred_info, tuple):
+                pred_idx, pred_pka = pred_info
+            else:
+                continue
+            
+            if pred_idx < len(batch.pka_values) and not torch.isnan(batch.pka_values[pred_idx]):
+                true_pka = batch.pka_values[pred_idx].item()
+                relative_error = abs(pred_pka - true_pka) / (abs(true_pka) + 1e-6)
+                if relative_error <= 0.1:  # 10%的相對誤差閾值
+                    correct_predictions += 1
+                total_predictions += 1
+        
+        if total_predictions > 0:
+            train_reg_accuracy = correct_predictions / total_predictions
+
     # 計算F1分數（如果有足夠的數據）
     train_f1 = 0
     if len(all_train_preds) > 0 and len(all_train_true) > 0:
@@ -402,171 +441,58 @@ for epoch in range(config['num_epochs']):
     """
     測試集評估
     """
-    # debug_log("開始測試集評估...")
+    debug_log("開始測試集評估...")
     model.eval()
 
-    # 收集測試集預測結果
-    all_test_preds = []
-    all_test_true = []
-    all_test_reg_preds = []
-    all_test_reg_true = []
-
-    # 添加調試信息
-    # debug_log(f"測試資料集大小: {len(test_loader.dataset)}個樣本, {len(test_loader)}個批次")
-
-    # 手動實現評估過程，而不是直接調用evaluate_model
-    total_cls_acc = 0
-    total_reg_mse = 0
-    test_results = {'atom_results': {}, 'molecule_results': []}
-
     try:
-        with torch.no_grad():
-            for batch_idx, batch in enumerate(tqdm(test_loader, desc=f"Epoch {epoch+1}/{config['num_epochs']} [Test]")):
-                # debug_log(f"處理測試批次 {batch_idx+1}/{len(test_loader)}")
-                
-                # 將數據移至設備
-                batch = batch.to(device)
-                
-                # 前向傳播
-                # debug_log(f"批次 {batch_idx+1} 開始前向傳播")
-                outputs = model(batch)
-                # debug_log(f"批次 {batch_idx+1} 前向傳播完成")
-                
-                # 打印預測結果類型
-                # debug_log(f"分類預測類型: {type(outputs[0]).__name__}, 長度: {len(outputs[0]) if isinstance(outputs[0], list) else outputs[0].shape}")
-                
-                # 檢查回歸預測類型和形狀
-                if isinstance(outputs[1], list):
-                    # debug_log(f"回歸預測是列表，長度: {len(outputs[1])}")
-                    if len(outputs[1]) > 0:
-                        sample_pred = outputs[1][0]
-                        # debug_log(f"  列表中第一個元素類型: {type(sample_pred).__name__}")
-                        if hasattr(sample_pred, 'shape'):
-                            # debug_log(f"  元素形狀: {sample_pred.shape}")
-                            pass
-                else:
-                    # debug_log(f"回歸預測是張量，形狀: {outputs[1].shape}")
-                    pass
-                
-                # 收集預測結果
-                if hasattr(batch, 'dissociable_masks'):
-                    # debug_log(f"批次 {batch_idx+1} 處理分類結果")
-                    true_cls = [1 if m.item() > 0 else 0 for m in batch.dissociable_masks]
-                    test_results['atom_results']['True_Labels'] = true_cls
-                    test_results['atom_results']['Pred_Labels'] = outputs[0]
-                
-                if hasattr(batch, 'pka_values'):
-                    # debug_log(f"批次 {batch_idx+1} 處理回歸結果")
-                    
-                    # 處理回歸預測結果
-                    true_pka_list = []
-                    pred_pka_list = []
-                    
-                    # 逐個處理每個節點的預測
-                    for i in range(len(batch.dissociable_masks)):
-                        if batch.dissociable_masks[i] > 0:  # 如果是可解離原子
-                            true_pka_list.append(batch.pka_values[i].cpu().item())
-                            
-                            # 如果outputs[1]是列表，則直接獲取對應元素
-                            if isinstance(outputs[1], list):
-                                valid_count = sum(1 for m in batch.dissociable_masks[:i] if m > 0)
-                                if valid_count < len(outputs[1]):
-                                    # 如果預測值是二維的，只取第一個值
-                                    pred_value = outputs[1][valid_count]
-                                    if isinstance(pred_value, (torch.Tensor, np.ndarray)) and hasattr(pred_value, 'shape') and len(pred_value.shape) > 0 and pred_value.shape[0] > 0:
-                                        pred_value = pred_value[0].cpu().item() if isinstance(pred_value, torch.Tensor) else pred_value[0]
-                                    pred_pka_list.append(pred_value)
-                                else:
-                                    # debug_log(f"警告: 索引超出範圍, valid_count={valid_count}, outputs[1]長度={len(outputs[1])}")
-                                    pass
-                            else:
-                                # 如果是張量，則使用索引
-                                pred_value = outputs[1][i]
-                                # 如果預測值是二維的，只取第一個值
-                                if len(pred_value.shape) > 0 and pred_value.shape[0] > 0:
-                                    pred_value = pred_value[0]
-                                pred_pka_list.append(pred_value.cpu().item())
-                    
-                    # debug_log(f"找到 {len(true_pka_list)} 個有效的pKa值")
-                    
-                    # 將結果添加到測試結果中
-                    test_results['atom_results']['True_pKa'] = true_pka_list
-                    test_results['atom_results']['Pred_pKa'] = pred_pka_list
-                
-                # debug_log(f"完成批次 {batch_idx+1}/{len(test_loader)}")
+        # 使用 PKADataProcessor 的評估方法
+        test_cls_acc, test_reg_mse, test_results = PKADataProcessor.evaluate_model(
+            model, 
+            test_loader, 
+            device
+        )
+        
+        # 從結果中提取所需的指標
+        all_test_true = test_results['atom_results'].get('True_Labels', [])
+        all_test_preds = test_results['atom_results'].get('Pred_Labels', [])
+        all_test_reg_true = test_results['atom_results'].get('True_pKa', [])
+        all_test_reg_preds = test_results['atom_results'].get('Pred_pKa', [])
+        
+        # 計算額外的評估指標
+        test_f1 = 0
+        mae = 0
+        r2 = 0
+        test_order_acc = 0  # 初始化test_order_acc變數
+        
+        if len(all_test_preds) > 0 and len(all_test_true) > 0:
+            test_f1 = f1_score(all_test_true, all_test_preds, average='macro', zero_division=0)
+        
+        if len(all_test_reg_preds) > 0 and len(all_test_reg_true) > 0:
+            # 計算回歸準確率
+            test_reg_accuracy = 0
+            correct_predictions = 0
+            total_predictions = 0
             
-            # 計算指標前檢查數據形狀
-            if len(test_results['atom_results']['True_pKa']) > 0 and len(test_results['atom_results']['Pred_pKa']) > 0:
-                true_pka_array = np.array(test_results['atom_results']['True_pKa'])
-                pred_pka_array = np.array(test_results['atom_results']['Pred_pKa'])
-                
-                # debug_log(f"真實pKa形狀: {true_pka_array.shape}")
-                # debug_log(f"預測pKa形狀: {pred_pka_array.shape}")
-                
-                # 確保預測值是一維的
-                if len(pred_pka_array.shape) > 1:
-                    # debug_log(f"預測pKa是多維的，展平或取第一列")
-                    if pred_pka_array.shape[1] == 2:
-                        # 假設第一列是實際的pKa預測
-                        pred_pka_array = pred_pka_array[:, 0]
-                        # debug_log(f"取第一列後預測pKa形狀: {pred_pka_array.shape}")
-                    else:
-                        # 如果不確定哪一列是正確的，可以展平平均值
-                        pred_pka_array = pred_pka_array.mean(axis=1)
-                        # debug_log(f"取平均值後預測pKa形狀: {pred_pka_array.shape}")
-                
-                # 更新測試結果字典
-                test_results['atom_results']['Pred_pKa'] = pred_pka_array.tolist()
+            for pred, true in zip(all_test_reg_preds, all_test_reg_true):
+                relative_error = abs(pred - true) / (abs(true) + 1e-6)
+                if relative_error <= 0.1:  # 10%的相對誤差閾值
+                    correct_predictions += 1
+                total_predictions += 1
             
-            # 計算指標
-            # debug_log("計算測試指標...")
-            if len(test_results['atom_results']['True_Labels']) > 0 and len(test_results['atom_results']['Pred_Labels']) > 0:
-                correct = sum(1 for t, p in zip(test_results['atom_results']['True_Labels'], test_results['atom_results']['Pred_Labels']) if t == p)
-                test_cls_acc = correct / len(test_results['atom_results']['True_Labels'])
-                # debug_log(f"分類準確率: {test_cls_acc:.4f}, 樣本數: {len(test_results['atom_results']['True_Labels'])}")
-            else:
-                test_cls_acc = 0
-                # debug_log("沒有分類結果可用")
+            if total_predictions > 0:
+                test_reg_accuracy = correct_predictions / total_predictions
+        else:
+            test_reg_accuracy = 0
+
+        if len(all_test_reg_preds) > 0 and len(all_test_reg_true) > 0:
+            # 確保一維形狀進行計算
+            true_reg = np.array(all_test_reg_true)
+            pred_reg = np.array(all_test_reg_preds)
             
-            if len(test_results['atom_results']['True_pKa']) > 0 and len(test_results['atom_results']['Pred_pKa']) > 0:
-                # 確保兩個數組形狀一致
-                true_pka = np.array(test_results['atom_results']['True_pKa'])
-                pred_pka = np.array(test_results['atom_results']['Pred_pKa'])
-                
-                # 再次檢查形狀
-                # debug_log(f"MSE計算前 - 真實pKa形狀: {true_pka.shape}, 預測pKa形狀: {pred_pka.shape}")
-                
-                # 安全計算MSE
-                test_reg_mse = ((true_pka - pred_pka) ** 2).mean()
-                # debug_log(f"回歸MSE: {test_reg_mse:.4f}, 樣本數: {len(true_pka)}")
-            else:
-                test_reg_mse = 0
-                # debug_log("沒有回歸結果可用")
-            
-            all_test_true = test_results['atom_results']['True_Labels']
-            all_test_preds = test_results['atom_results']['Pred_Labels']
-            all_test_reg_true = test_results['atom_results']['True_pKa']
-            all_test_reg_preds = test_results['atom_results']['Pred_pKa']
-            
-            # 計算額外的評估指標
-            test_f1 = 0
-            mae = 0
-            r2 = 0
-            test_order_acc = 0  # 初始化test_order_acc變數
-            
-            if len(all_test_preds) > 0 and len(all_test_true) > 0:
-                # debug_log(f"計算F1分數，標籤分布: {sum(all_test_true)}/{len(all_test_true)}")
-                test_f1 = f1_score(all_test_true, all_test_preds, average='macro', zero_division=0)
-            
-            if len(all_test_reg_preds) > 0 and len(all_test_reg_true) > 0:
-                # 確保一維形狀進行計算
-                true_reg = np.array(all_test_reg_true)
-                pred_reg = np.array(all_test_reg_preds)
-                
-                debug_log(f"計算回歸指標，pKa範圍: {true_reg.min():.2f} - {true_reg.max():.2f}")
-                mae = mean_absolute_error(true_reg, pred_reg)
-                r2 = r2_score(true_reg, pred_reg) if len(true_reg) > 1 else 0
-                debug_log(f"測試集 - MAE: {mae:.4f}, R²: {r2:.4f}, F1: {test_f1:.4f}")
+            debug_log(f"計算回歸指標，pKa範圍: {true_reg.min():.2f} - {true_reg.max():.2f}")
+            mae = mean_absolute_error(true_reg, pred_reg)
+            r2 = r2_score(true_reg, pred_reg) if len(true_reg) > 1 else 0
+            debug_log(f"測試集 - MAE: {mae:.4f}, R²: {r2:.4f}, F1: {test_f1:.4f}")
 
     except Exception as e:
         debug_log(f"測試評估過程發生錯誤: {str(e)}")
@@ -599,13 +525,15 @@ for epoch in range(config['num_epochs']):
     history['train_loss'].append(train_loss)
     history['train_cls_loss'].append(train_cls_loss)
     history['train_reg_loss'].append(train_reg_loss)
-    history['train_accuracy'].append(train_accuracy)
+    history['train_cls_accuracy'].append(train_cls_accuracy)
+    history['train_reg_accuracy'].append(train_reg_accuracy)
     history['train_f1'].append(train_f1)
     history['train_order_loss'].append(train_order_loss)
     history['test_loss'].append(test_loss)
     history['test_cls_acc'].append(test_cls_acc)
     history['test_reg_mse'].append(test_reg_mse)
-    history['test_accuracy'].append(test_cls_acc)
+    history['test_cls_accuracy'].append(test_cls_acc)
+    history['test_reg_accuracy'].append(test_reg_accuracy)
     history['test_f1'].append(test_f1)
     history['train_mae'].append(0)  # 暫時不計算訓練MAE
     history['test_mae'].append(mae)
@@ -622,7 +550,7 @@ for epoch in range(config['num_epochs']):
     debug_log("=" * 50)
     debug_log(f"Epoch {epoch+1}/{config['num_epochs']} 完成 (用時: {epoch_time:.2f}s)")
     debug_log(f"訓練集結果:")
-    debug_log(f"  分類損失: {train_cls_loss:.4f}, 分類準確率: {train_accuracy:.4f}, F1: {train_f1:.4f}")
+    debug_log(f"  分類損失: {train_cls_loss:.4f}, 分類準確率: {train_cls_accuracy:.4f}, F1: {train_f1:.4f}")
     debug_log(f"  回歸損失: {train_reg_loss:.4f}")
     if train_order_loss > 0:
         debug_log(f"  解離順序損失: {train_order_loss:.4f}")
@@ -674,235 +602,24 @@ debug_log("\n"+"="*50)
 debug_log("最終評估:")
 debug_log("="*50)
 
-# 自定義評估函數替代 PKADataProcessor.evaluate_model
-def custom_final_evaluate(model, data_loader, device, output_path=None):
-    debug_log(f"使用自定義評估函數進行最終評估...")
-    model.eval()
-    
-    # 收集結果
-    results = {
-        'SMILES': [],
-        'True_pKa': [],
-        'Pred_pKa': [],
-        'True_Labels': [],
-        'Pred_Labels': [],
-        'Dissociable': [],
-        'Is_Valid': [],
-        'Dissociation_Order': []  # 添加解離順序欄位
-    }
-    
-    processed_smiles = set()  # 追蹤已處理的分子，避免重複
-    
-    with torch.no_grad():
-        for batch_idx, batch in enumerate(tqdm(data_loader, desc="最終評估")):
-            debug_log(f"處理批次 {batch_idx+1}/{len(data_loader)}")
-            
-            # 獲取SMILES
-            if hasattr(batch, 'smiles'):
-                batch_smiles = batch.smiles
-            else:
-                # 如果批次沒有SMILES，生成臨時ID
-                batch_smiles = [f"molecule_{batch_idx}_{i}" for i in range(batch.num_graphs)]
-            
-            # 獲取解離順序信息
-            has_dissociation_order = hasattr(batch, 'dissociation_order')
-            
-            # 將數據移至設備
-            batch = batch.to(device)
-            # 前向傳播 - 檢查是否支持解離順序預測
-            import inspect
-            if hasattr(model, 'predict') and len(inspect.signature(model.predict).parameters) > 1:
-                dissociable_nodes, pka_predictions, order_predictions = model.predict(batch)
-            else:
-                # 保持向後兼容性
-                cls_preds, reg_preds, _ = model(batch)
-                order_predictions = []  # 不支援順序預測時，使用空列表
-            
-            # 按分子分組處理結果
-            molecule_data = {}
-            
-            # 收集每個批次數據的原子級信息
-            for i in range(batch.num_graphs):
-                # 獲取當前分子的SMILES
-                if i < len(batch_smiles):
-                    smiles = batch_smiles[i]
-                else:
-                    smiles = f"molecule_{batch_idx}_{i}"
-                
-                # 跳過已處理的分子
-                if smiles in processed_smiles:
-                    continue
-                
-                # 將該分子標記為已處理
-                processed_smiles.add(smiles)
-                
-                # 獲取該分子的節點索引
-                if hasattr(batch, 'batch'):
-                    # 找出屬於當前分子的所有節點
-                    node_indices = (batch.batch == i).nonzero(as_tuple=True)[0]
-                    
-                    # 初始化該分子的數據結構
-                    if smiles not in molecule_data:
-                        molecule_data[smiles] = {
-                            'dissociable_atoms': [],
-                            'true_pka': [],
-                            'pred_pka': [],
-                            'is_dissociable': False,
-                            'dissociation_orders': []  # 新增：解離順序
-                        }
-                    
-                    # 處理該分子的所有節點
-                    for node_idx in node_indices:
-                        # 檢查是否是可解離原子
-                        if hasattr(batch, 'dissociable_masks') and node_idx < len(batch.dissociable_masks):
-                            is_dissociable = batch.dissociable_masks[node_idx].item() > 0
-                            
-                            # 如果是可解離原子，收集pKa值
-                            if is_dissociable:
-                                molecule_data[smiles]['is_dissociable'] = True
-                                molecule_data[smiles]['dissociable_atoms'].append(node_idx.item())
-                                
-                                # 獲取解離順序
-                                if has_dissociation_order:
-                                    order = batch.dissociation_order[node_idx].item()
-                                    molecule_data[smiles]['dissociation_orders'].append(order)
-                                else:
-                                    molecule_data[smiles]['dissociation_orders'].append(-1)
-                                
-                                if hasattr(batch, 'pka_values'):
-                                    true_pka = batch.pka_values[node_idx].item()
-                                    molecule_data[smiles]['true_pka'].append(true_pka)
-                                
-                                # 處理預測值
-                                if isinstance(reg_preds, list):
-                                    # 需要找出對應於此節點的預測索引
-                                    valid_count = sum(1 for j in range(len(batch.dissociable_masks)) if 
-                                                     j < node_idx and batch.dissociable_masks[j].item() > 0 and batch.batch[j] == i)
-                                    
-                                    dissociable_in_molecule = sum(1 for j in range(len(batch.dissociable_masks)) if 
-                                                               batch.dissociable_masks[j].item() > 0 and batch.batch[j] == i)
-                                    
-                                    if valid_count < len(reg_preds) and valid_count < dissociable_in_molecule:
-                                        pred_value = reg_preds[valid_count]
-                                        if isinstance(pred_value, (torch.Tensor, np.ndarray)):
-                                            if len(pred_value.shape) > 0:
-                                                pred_value = pred_value[0].item() if isinstance(pred_value, torch.Tensor) else pred_value[0]
-                                            else:
-                                                pred_value = pred_value.item() if isinstance(pred_value, torch.Tensor) else float(pred_value)
-                                        molecule_data[smiles]['pred_pka'].append(pred_value)
-                                else:
-                                    pred_value = reg_preds[node_idx].item() if hasattr(reg_preds[node_idx], 'item') else float(reg_preds[node_idx])
-                                    molecule_data[smiles]['pred_pka'].append(pred_value)
-            
-            # 處理完該批次後，將分子級結果添加到最終結果
-            for smiles, data in molecule_data.items():
-                # 只處理有解離原子的分子
-                if data['is_dissociable']:
-                    # 組合數據
-                    pka_order_pairs = sorted(zip(data['dissociation_orders'], data['true_pka'], data['pred_pka']), 
-                                            key=lambda x: x[0] if x[0] >= 0 else float('inf'))
-                    
-                    if not pka_order_pairs:
-                        continue
-                    
-                    # 按解離順序處理每個原子的預測
-                    for order, true_pka, pred_pka in pka_order_pairs:
-                        # 將其添加到結果中
-                        results['SMILES'].append(smiles)
-                        results['True_pKa'].append(true_pka)
-                        results['Pred_pKa'].append(pred_pka)
-                        results['True_Labels'].append(1)  # 有解離原子
-                        results['Pred_Labels'].append(1)  # 預測為有解離原子
-                        results['Dissociable'].append(True)
-                        results['Is_Valid'].append(True)
-                        results['Dissociation_Order'].append(order)
-        
-        # 計算評估指標
-        cls_accuracy = 0
-        reg_mse = 0
-        valid_preds = [(t, p) for t, p, v in zip(results['True_pKa'], results['Pred_pKa'], results['Is_Valid']) if v]
-        if valid_preds:
-            true_pka = np.array([t for t, _ in valid_preds])
-            pred_pka = np.array([p for _, p in valid_preds])
-            
-            # 確保pred_pka是一維數組
-            if len(pred_pka.shape) > 1 and pred_pka.shape[1] > 1:
-                # 如果pred_pka是二維數組，取第一列
-                pred_pka = pred_pka[:, 0]
-            
-            reg_mse = ((true_pka - pred_pka) ** 2).mean()
-            
-            # 分類準確率就是有解離原子的分子數量比例
-            cls_accuracy = sum(results['Is_Valid']) / len(results['Is_Valid']) if results['Is_Valid'] else 0
-        
-        # 保存結果到CSV，分開保存原子級別和分子級別
-        if output_path:
-            # 原子級別結果
-            atom_df = pd.DataFrame({
-                'SMILES': results['SMILES'],
-                'True_pKa': results['True_pKa'],
-                'Pred_pKa': results['Pred_pKa'],
-                'Is_Dissociable': results['Dissociable'],
-                'Is_Valid': results['Is_Valid'],
-                'Dissociation_Order': results['Dissociation_Order']
-            })
-            atom_output_path = output_path.replace('.csv', '_atom_level.csv')
-            atom_df.to_csv(atom_output_path, index=False)
-            debug_log(f"原子級別結果已保存至 {atom_output_path}")
-            
-            # 分子級別結果 - 按分子分組並計算平均值
-            mol_data = {}
-            for i, (smiles, order, true_pka, pred_pka) in enumerate(zip(results['SMILES'], results['Dissociation_Order'], 
-                                                                     results['True_pKa'], results['Pred_pKa'])):
-                if smiles not in mol_data:
-                    mol_data[smiles] = {'orders': [], 'true_pkas': [], 'pred_pkas': []}
-                mol_data[smiles]['orders'].append(order)
-                mol_data[smiles]['true_pkas'].append(true_pka)
-                mol_data[smiles]['pred_pkas'].append(pred_pka)
-            
-            mol_rows = []
-            for smiles, data in mol_data.items():
-                # 按解離順序排序
-                sorted_data = sorted(zip(data['orders'], data['true_pkas'], data['pred_pkas']), 
-                                    key=lambda x: x[0] if x[0] >= 0 else float('inf'))
-                
-                # 提取排序後的數據
-                sorted_orders = [o for o, _, _ in sorted_data]
-                sorted_true_pkas = [t for _, t, _ in sorted_data]
-                sorted_pred_pkas = [p for _, _, p in sorted_data]
-                
-                # 計算分子級別的指標
-                # 確保pred_pka是一維數值而非元組
-                mse = np.mean([(float(t) - float(p)) ** 2 for t, p in zip(sorted_true_pkas, sorted_pred_pkas)])
-                mae = np.mean([abs(float(t) - float(p)) for t, p in zip(sorted_true_pkas, sorted_pred_pkas)])
-                # 創建分子級別的行
-                mol_rows.append({
-                    'SMILES': smiles,
-                    'Dissociation_Orders': ';'.join(map(str, sorted_orders)),
-                    'True_pKa_Values': ';'.join(map(str, sorted_true_pkas)),
-                    'Pred_pKa_Values': ';'.join(map(str, sorted_pred_pkas)),
-                    'Avg_True_pKa': np.mean(sorted_true_pkas),
-                    'Avg_Pred_pKa': np.mean(sorted_pred_pkas),
-                    'MSE': mse,
-                    'MAE': mae
-                })
-            
-            mol_df = pd.DataFrame(mol_rows)
-            mol_output_path = output_path.replace('.csv', '_molecule_level.csv')
-            mol_df.to_csv(mol_output_path, index=False)
-            debug_log(f"分子級別結果已保存至 {mol_output_path}")
-        
-        return cls_accuracy, reg_mse, results
-
-# 訓練集評估
+# 使用 PKADataProcessor 的評估方法
 debug_log("開始訓練集最終評估...")
-train_cls_acc, train_reg_mse, train_results = custom_final_evaluate(
-    model, train_loader, device,
+train_cls_acc, train_reg_mse, train_results = PKADataProcessor.evaluate_model(
+    model, 
+    train_loader, 
+    device,
     output_path=os.path.join(config['save_path'], f"{config['version']}_final_train_predictions.csv")
 )
+
+# 計算訓練集的 F1 分數
 train_f1 = 0
-if 'True_Labels' in train_results and 'Pred_Labels' in train_results:
-    train_f1 = f1_score(train_results['True_Labels'], train_results['Pred_Labels'], average='macro', zero_division=0)
+if 'atom_results' in train_results and 'True_Labels' in train_results['atom_results']:
+    train_f1 = f1_score(
+        train_results['atom_results']['True_Labels'], 
+        train_results['atom_results']['Pred_Labels'], 
+        average='macro', 
+        zero_division=0
+    )
 
 debug_log(f"訓練集最終結果:")
 debug_log(f"  分類準確率: {train_cls_acc:.4f}, F1: {train_f1:.4f}")
@@ -910,18 +627,34 @@ debug_log(f"  回歸MSE: {train_reg_mse:.4f}")
 
 # 測試集評估
 debug_log("開始測試集最終評估...")
-test_cls_acc, test_reg_mse, test_results = custom_final_evaluate(
-    model, test_loader, device,
+test_cls_acc, test_reg_mse, test_results = PKADataProcessor.evaluate_model(
+    model, 
+    test_loader, 
+    device,
     output_path=os.path.join(config['save_path'], f"{config['version']}_final_test_predictions.csv")
 )
+
+# 計算測試集的額外指標
 test_f1 = 0
 mae = 0
 r2 = 0
 
-if 'True_pKa' in test_results and 'Pred_pKa' in test_results:
-    if len(test_results['True_pKa']) > 0 and len(test_results['Pred_pKa']) > 0:
-        mae = mean_absolute_error(test_results['True_pKa'], test_results['Pred_pKa'])
-        r2 = r2_score(test_results['True_pKa'], test_results['Pred_pKa']) if len(test_results['True_pKa']) > 1 else 0
+if 'atom_results' in test_results:
+    atom_results = test_results['atom_results']
+    if 'True_Labels' in atom_results and 'Pred_Labels' in atom_results:
+        test_f1 = f1_score(
+            atom_results['True_Labels'], 
+            atom_results['Pred_Labels'], 
+            average='macro', 
+            zero_division=0
+        )
+    
+    if 'True_pKa' in atom_results and 'Pred_pKa' in atom_results:
+        true_pka = np.array(atom_results['True_pKa'])
+        pred_pka = np.array(atom_results['Pred_pKa'])
+        if len(true_pka) > 0 and len(pred_pka) > 0:
+            mae = mean_absolute_error(true_pka, pred_pka)
+            r2 = r2_score(true_pka, pred_pka) if len(true_pka) > 1 else 0
 
 debug_log(f"測試集最終結果:")
 debug_log(f"  分類準確率: {test_cls_acc:.4f}, F1: {test_f1:.4f}")

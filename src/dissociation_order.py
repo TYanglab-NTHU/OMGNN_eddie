@@ -20,8 +20,89 @@ PKA_RANGES = {
     'imidazole': (6.5, 7.5),            # 咪唑
     'guanidine': (12.0, 14.0),          # 胍基
     'alcohol': (15.0, 18.0),            # 醇(不太可能在生理pH解離)
-    'amide': (15.0, 17.0)               # 酰胺(不太可能在生理pH解離)
+    'amide': (15.0, 17.0),              # 酰胺(不太可能在生理pH解離)
+    'phosphate': (1.0, 3.0),            # 添加磷酸鹽第一解離
+    'phosphate_2': (5.0, 7.0),          # 添加磷酸鹽第二解離  
+    'phosphate_3': (9.0, 12.0)          # 添加磷酸鹽第三解離
 }
+
+def identify_dissociating_group(pka_value, functional_groups_str):
+    """
+    根據pKa值識別最可能解離的官能團
+    
+    參數:
+        pka_value (float): 實驗測得的pKa值
+        functional_groups_str (str): 官能團類型，如 "amine_primary:carboxylic_acid"
+        
+    返回:
+        tuple: (dissociating_group, closest_distance) 最可能解離的官能團和對應的pKa距離
+    """
+    if pka_value is None or np.isnan(pka_value):
+        return "Unknown", float('inf')
+    
+    functional_groups = functional_groups_str.split(':')
+    min_distance = float('inf')
+    closest_group = "Unknown"
+    
+    # 特殊處理磷酸鹽
+    phosphate_groups = []
+    has_phosphate = False
+    for group in functional_groups:
+        if group == 'phosphate':
+            has_phosphate = True
+            phosphate_groups.extend(['phosphate', 'phosphate_2', 'phosphate_3'])
+    
+    # 如果有phosphate，替換為三個不同階段的磷酸解離
+    groups_to_check = []
+    for group in functional_groups:
+        if group == 'phosphate' and has_phosphate:
+            continue  # 跳過原始的phosphate，因為我們已經添加了三個階段
+        groups_to_check.append(group)
+    
+    if has_phosphate:
+        groups_to_check.extend(phosphate_groups)
+    
+    # 檢查pKa與各官能團的距離
+    for group in groups_to_check:
+        if group in PKA_RANGES:
+            pka_range = PKA_RANGES[group]
+            midpoint = (pka_range[0] + pka_range[1]) / 2
+            distance = abs(pka_value - midpoint)
+            
+            # 檢查pKa是否在範圍內或接近範圍
+            if distance < min_distance:
+                min_distance = distance
+                if group in ['phosphate', 'phosphate_2', 'phosphate_3']:
+                    closest_group = 'phosphate'  # 統一顯示為phosphate
+                else:
+                    closest_group = group
+    
+    return closest_group, min_distance
+
+def get_functional_group_pka_info(functional_groups_str):
+    """
+    獲取官能團pKa範圍信息
+    
+    參數:
+        functional_groups_str (str): 官能團類型，如 "amine_primary:carboxylic_acid"
+        
+    返回:
+        str: 包含官能團和pKa範圍的信息
+    """
+    functional_groups = functional_groups_str.split(':')
+    info_parts = []
+    
+    for group in functional_groups:
+        if group == 'phosphate':
+            # 特殊處理磷酸鹽，顯示三個解離階段
+            info_parts.append(f"{group}(1.0~3.0, 5.0~7.0, 9.0~12.0)")
+        elif group in PKA_RANGES:
+            pka_min, pka_max = PKA_RANGES[group]
+            info_parts.append(f"{group}({pka_min:.1f}~{pka_max:.1f})")
+        else:
+            info_parts.append(f"{group}(Unknown)")
+    
+    return "; ".join(info_parts)
 
 def determine_dissociation_order(smiles, dissociable_atoms_str, functional_groups_str, pka_value):
     """
@@ -54,8 +135,20 @@ def determine_dissociation_order(smiles, dissociable_atoms_str, functional_group
     
     # 根據官能團的典型pKa範圍排序
     def get_pka_range_midpoint(group):
-        pka_range = PKA_RANGES.get(group, (14, 14))  # 預設值為高pKa
-        return (pka_range[0] + pka_range[1]) / 2
+        if group == 'phosphate':
+            # 根據pKa值判斷是哪個階段的磷酸解離
+            if pka_value is not None and not np.isnan(pka_value):
+                if pka_value < 4.0:
+                    return (PKA_RANGES['phosphate'][0] + PKA_RANGES['phosphate'][1]) / 2
+                elif pka_value < 8.0:
+                    return (PKA_RANGES['phosphate_2'][0] + PKA_RANGES['phosphate_2'][1]) / 2
+                else:
+                    return (PKA_RANGES['phosphate_3'][0] + PKA_RANGES['phosphate_3'][1]) / 2
+            else:
+                return (PKA_RANGES['phosphate'][0] + PKA_RANGES['phosphate'][1]) / 2  # 默認使用第一階段
+        else:
+            pka_range = PKA_RANGES.get(group, (14, 14))  # 預設值為高pKa
+            return (pka_range[0] + pka_range[1]) / 2
     
     # 按照官能團的典型pKa中點值排序
     sorted_pairs = sorted(atom_group_pairs, key=lambda x: get_pka_range_midpoint(x[1]))
@@ -120,6 +213,8 @@ def assign_dissociation_order(input_file, output_file):
     df['Dissociable_Atoms_Ordered'] = ""
     df['Functional_Group_Ordered'] = ""
     df['Dissociation_Order'] = ""  # 存儲解離順序說明
+    df['Dissociating_Group'] = ""  # 新增: 當前pKa最可能對應的解離官能團
+    df['Functional_Group_pKa_Ranges'] = ""  # 新增: 官能團pKa範圍信息
     
     # 處理每一行
     for idx, row in df.iterrows():
@@ -142,12 +237,21 @@ def assign_dissociation_order(input_file, output_file):
                 atoms_ordered.split(':'), groups_ordered.split(':'))])
             df.at[idx, 'Dissociation_Order'] = order_text
             
+            # 識別當前pKa對應的解離官能團
+            dissociating_group, distance = identify_dissociating_group(pka, functional_groups)
+            df.at[idx, 'Dissociating_Group'] = dissociating_group
+            
+            # 添加官能團pKa範圍信息
+            df.at[idx, 'Functional_Group_pKa_Ranges'] = get_functional_group_pka_info(functional_groups)
+            
         except Exception as e:
             print(f"處理行 {idx} 時出錯: {e}, SMILES: {smiles}")
             # 保持原始值
             df.at[idx, 'Dissociable_Atoms_Ordered'] = dissociable_atoms
             df.at[idx, 'Functional_Group_Ordered'] = functional_groups
             df.at[idx, 'Dissociation_Order'] = "處理錯誤"
+            df.at[idx, 'Dissociating_Group'] = "處理錯誤"
+            df.at[idx, 'Functional_Group_pKa_Ranges'] = "處理錯誤"
     
     # 保存結果
     df.to_csv(output_file, index=False)

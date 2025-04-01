@@ -5,9 +5,11 @@ from torch_geometric.nn import global_mean_pool
 from torch_geometric.nn import MessagePassing, GCNConv, Linear, BatchNorm, GlobalAttention
 import time  # 添加時間模組
 import sys   # 添加系統模組
+import numpy as np
+from sklearn.preprocessing import StandardScaler
 
 # 添加全局調試開關
-DEBUG = False
+DEBUG = True  # 設為True以查看詳細調試信息
 MAX_RETRIES = 3  # 最大重試次數，避免無限循環
 
 def debug_log(message):
@@ -215,6 +217,44 @@ class SequentialBondMessagePassing(nn.Module):
         debug_log(f"SequentialBondMessagePassing.forward完成")
         return H
 
+class PKAScaler:
+    def __init__(self):
+        self.fitted = False
+        self.mean = 0.0
+        self.std = 1.0
+        # 無需使用 sklearn 的 StandardScaler，直接計算統計量
+    
+    def fit(self, pka_values):
+        """使用真實pKa值擬合標準化器"""
+        valid_values = [x for x in pka_values if np.isfinite(x)]
+        if len(valid_values) > 0:
+            # 直接計算均值和標準差
+            self.mean = np.mean(valid_values)
+            self.std = np.std(valid_values) if np.std(valid_values) > 0 else 1.0
+            self.fitted = True
+            debug_log(f"PKAScaler已擬合: 平均值={self.mean:.4f}, 標準差={self.std:.4f}")
+            
+            # 在標準化器擬合後添加
+            debug_log(f"標準化前的pKa統計: 最小={min(valid_values):.2f}, 最大={max(valid_values):.2f}")
+            
+            # 在標準化後檢查標準化值的分布
+            std_values = [(x - self.mean) / self.std for x in valid_values]
+            debug_log(f"標準化後的統計: 平均={np.mean(std_values):.2f}, 標準差={np.std(std_values):.2f}")
+    
+    def transform(self, pka_value):
+        """將單個pKa值標準化"""
+        if not self.fitted:
+            return pka_value
+        if not np.isfinite(pka_value):
+            return 0.0
+        return (pka_value - self.mean) / self.std
+    
+    def inverse_transform(self, scaled_value):
+        """將標準化的值轉換回原始尺度"""
+        if not self.fitted:
+            return scaled_value
+        return scaled_value * self.std + self.mean
+
 class PKA_GNN(nn.Module):
     def __init__(self, node_dim, bond_dim, hidden_dim, max_dissociation_steps=2, dropout=0.1):
         super(PKA_GNN, self).__init__()
@@ -241,7 +281,9 @@ class PKA_GNN(nn.Module):
             nn.Linear(hidden_dim + 1, 256),  # 增加1個特徵用於解離順序
             nn.ReLU(),
             nn.Dropout(dropout * 1.5),
-            nn.Linear(256, 64),
+            nn.Linear(256, 128),
+            nn.ReLU(),
+            nn.Linear(128, 64),
             nn.ReLU(),
             nn.Linear(64, 1)
         )
@@ -267,7 +309,22 @@ class PKA_GNN(nn.Module):
         # 記錄最大解離階段
         self.max_dissociation_steps = max_dissociation_steps
         
+        # 添加pKa值標準化器
+        self.pka_scaler = PKAScaler()
+        
+        # 加大初始化權重範圍，使模型開始時就能產生多樣化預測
+        self._init_weights()
+        
         debug_log("PKA_GNN初始化完成")
+    
+    def _init_weights(self):
+        """初始化權重，使模型開始時有更大的輸出範圍"""
+        for m in self.pka_regressor.modules():
+            if isinstance(m, nn.Linear):
+                # 使用更大的標準差初始化
+                nn.init.normal_(m.weight, mean=0.0, std=0.2)
+                if m.bias is not None:
+                    nn.init.zeros_(m.bias)
     
     # 獲取反向邊緣索引
     @staticmethod
@@ -320,14 +377,25 @@ class PKA_GNN(nn.Module):
         dissociation_order = batch.dissociation_order if hasattr(batch, 'dissociation_order') else None
         current_dissociation = batch.current_dissociation if hasattr(batch, 'current_dissociation') else None
         
-        debug_log(f"批次數據: x.shape={x.shape}, edge_attr.shape={edge_attr.shape}, 邊數量={edge_index.shape[1]}")
+        # 統計和擬合pKa標準化器（僅在訓練階段第一次執行）
+        if pka_values is not None and not self.pka_scaler.fitted:
+            valid_pka_values = [pka.item() for pka in pka_values if not torch.isnan(pka)]
+            self.pka_scaler.fit(valid_pka_values)
+            debug_log(f"已擬合pKa標準化器: 平均值={self.pka_scaler.mean:.4f}, 標準差={self.pka_scaler.std:.4f}")
+        
+        # pKa值分析
+        if pka_values is not None:
+            valid_pka = pka_values[~torch.isnan(pka_values)]
+            debug_log(f"真實pKa值統計: 最小={valid_pka.min().item():.2f}, 最大={valid_pka.max().item():.2f}, 平均={valid_pka.mean().item():.2f}, 數量={len(valid_pka)}")
         
         # 處理圖，獲取節點嵌入，傳遞解離順序
         debug_log("開始處理圖...")
         node_embeddings = self.forward_graph(x, edge_index, batch_idx, edge_attr, dissociation_order)
         
         # 初始化損失
-        total_cls_loss, total_reg_loss, total_order_loss = 0, 0, 0
+        total_cls_loss = torch.tensor(0.0, device=node_embeddings.device)
+        total_reg_loss = torch.tensor(0.0, device=node_embeddings.device)
+        total_order_loss = torch.tensor(0.0, device=node_embeddings.device)
         correct_predictions = 0
         total_dissociable_atoms = 0
         
@@ -335,6 +403,13 @@ class PKA_GNN(nn.Module):
         all_cls_predictions = []
         all_reg_predictions = []
         all_order_predictions = []
+        
+        # 收集pKa預測和真實值用於診斷
+        all_pred_pkas = []
+        all_true_pkas = []
+        all_scaled_pred_pkas = []
+        all_scaled_true_pkas = []
+        all_reg_losses = []
         
         # 遍歷每個節點
         debug_log(f"開始遍歷節點進行預測，共{len(x)}個節點")
@@ -355,6 +430,12 @@ class PKA_GNN(nn.Module):
                 target_cls = 1 if dissociable_masks[i].item() > 0 else 0
                 cls_loss = self.criterion_cls(cls_pred, torch.tensor([target_cls], device=cls_pred.device))
                 total_cls_loss += cls_loss
+                
+                # 添加分類損失調試
+                if i % 500 == 0:
+                    prob_0 = torch.softmax(cls_pred, dim=1)[0, 0].item()
+                    prob_1 = torch.softmax(cls_pred, dim=1)[0, 1].item()
+                    debug_log(f"節點 {i} 分類: 真實={target_cls}, 預測={cls_pred_label}, 概率=[{prob_0:.4f}, {prob_1:.4f}], 損失={cls_loss.item():.4f}")
                 
                 # 計算分類準確率
                 if cls_pred_label == target_cls:
@@ -382,26 +463,95 @@ class PKA_GNN(nn.Module):
                 order_feature = torch.tensor([[pred_order]], dtype=torch.float32, device=node_embeddings.device)
                 regression_input = torch.cat([node_embeddings[i].unsqueeze(0), order_feature / self.max_dissociation_steps], dim=1)
                 
-                # 預測pKa值
+                # 預測pKa值（標準化尺度）
                 pka_pred = self.pka_regressor(regression_input)
-                all_reg_predictions.append((i, pka_pred.item()))
+                
+                # 轉換回原始尺度
+                scaled_pred_pka = pka_pred.item()  # 標準化後的預測
+                pred_pka = self.pka_scaler.inverse_transform(scaled_pred_pka)  # 轉換回原始尺度
+                
+                all_reg_predictions.append((i, pred_pka))
                 
                 # 如果有真實pKa值
                 if pka_values is not None and i < len(pka_values) and not torch.isnan(pka_values[i]):
-                    reg_loss = self.criterion_reg(pka_pred, pka_values[i].unsqueeze(0).unsqueeze(0))
+                    true_pka = pka_values[i].item()
+                    
+                    # 標準化真實pKa值
+                    scaled_true_pka = self.pka_scaler.transform(true_pka)
+                    
+                    # 收集用於診斷的值
+                    all_pred_pkas.append(pred_pka)  # 原始尺度的預測
+                    all_true_pkas.append(true_pka)  # 原始尺度的真實值
+                    all_scaled_pred_pkas.append(scaled_pred_pka)  # 標準化後的預測
+                    all_scaled_true_pkas.append(scaled_true_pka)  # 標準化後的真實值
+                    
+                    # 在標準化尺度上計算損失
+                    reg_loss = self.criterion_reg(pka_pred, torch.tensor([[scaled_true_pka]], device=pka_pred.device))
+                    all_reg_losses.append(reg_loss.item())
                     total_reg_loss += reg_loss
+                    
+                    # 添加回歸損失調試
+                    if i % 100 == 0 or reg_loss.item() > 10:
+                        debug_log(f"節點 {i} 回歸: 真實pKa={true_pka:.2f}(標準化:{scaled_true_pka:.2f}), " + 
+                                 f"預測pKa={pred_pka:.2f}(標準化:{scaled_pred_pka:.2f}), 損失={reg_loss.item():.4f}")
                     
                     # 更新節點嵌入，使用門控機制
                     node_embeddings = node_embeddings * (1 - self.rnn_gate(node_embeddings))
         
-        # 計算總損失，加入解離順序損失
-        total_loss = total_cls_loss + total_reg_loss + 0.5 * total_order_loss  # 權重可調整
+        # 統計pKa預測結果
+        if all_pred_pkas and all_true_pkas:
+            # 原始尺度的統計
+            pred_mean = sum(all_pred_pkas) / len(all_pred_pkas)
+            true_mean = sum(all_true_pkas) / len(all_true_pkas)
+            pred_min, pred_max = min(all_pred_pkas), max(all_pred_pkas)
+            true_min, true_max = min(all_true_pkas), max(all_true_pkas)
+            
+            # 標準化尺度的統計
+            scaled_pred_mean = sum(all_scaled_pred_pkas) / len(all_scaled_pred_pkas)
+            scaled_true_mean = sum(all_scaled_true_pkas) / len(all_scaled_true_pkas)
+            
+            # 計算損失分布情況
+            if all_reg_losses:
+                loss_mean = sum(all_reg_losses) / len(all_reg_losses)
+                loss_min, loss_max = min(all_reg_losses), max(all_reg_losses)
+                high_losses = sum(1 for l in all_reg_losses if l > 10)
+                debug_log(f"回歸損失統計: 平均={loss_mean:.2f}, 最小={loss_min:.2f}, 最大={loss_max:.2f}, 高損失比例={high_losses}/{len(all_reg_losses)}")
+            
+            debug_log(f"pKa預測統計: 樣本數={len(all_pred_pkas)}")
+            debug_log(f"  原始預測值: 平均={pred_mean:.2f}, 範圍=[{pred_min:.2f}, {pred_max:.2f}]")
+            debug_log(f"  原始真實值: 平均={true_mean:.2f}, 範圍=[{true_min:.2f}, {true_max:.2f}]")
+            debug_log(f"  標準化預測值: 平均={scaled_pred_mean:.2f}")
+            debug_log(f"  標準化真實值: 平均={scaled_true_mean:.2f}")
+        
+        # 計算平均損失
+        if total_dissociable_atoms > 0:
+            total_cls_loss = total_cls_loss / total_dissociable_atoms
+        
+        if len(all_reg_losses) > 0:
+            # 使用 PyTorch 的 mean 函數而不是手動計算平均值
+            total_reg_loss = torch.tensor(all_reg_losses, device=node_embeddings.device).mean()
+        
+        # 計算總損失
+        total_loss = total_cls_loss + total_reg_loss
+        if total_order_loss > 0:
+            total_loss += 0.5 * total_order_loss
         
         # 計算分類準確率
         accuracy = correct_predictions / total_dissociable_atoms if total_dissociable_atoms > 0 else 0
         
-        debug_log(f"PKA_GNN.forward完成: 分類準確率={accuracy:.4f}, 總損失={total_loss.item():.4f}")
-        return all_cls_predictions, all_reg_predictions, (total_loss, total_cls_loss, total_reg_loss, accuracy)
+        # 計算回歸準確率（使用相對誤差）
+        reg_accuracy = 0
+        if all_pred_pkas and all_true_pkas:
+            # 計算相對誤差在10%以內的預測比例作為回歸準確率
+            correct_predictions = sum(1 for pred, true in zip(all_pred_pkas, all_true_pkas)
+                                    if abs(pred - true) / (abs(true) + 1e-6) <= 0.1)  # 允許10%的相對誤差
+            reg_accuracy = correct_predictions / len(all_pred_pkas)
+            debug_log(f"回歸準確率（相對誤差<=10%）: {reg_accuracy:.4f}")
+        
+        # 修改調試日誌，處理 float 對象
+        debug_log(f"PKA_GNN.forward完成: 分類準確率={accuracy:.4f}, 分類損失={total_cls_loss:.4f}, 回歸損失={total_reg_loss:.4f}, 總損失={total_loss:.4f}")
+        
+        return all_cls_predictions, all_reg_predictions, (total_loss, total_cls_loss, total_reg_loss, accuracy, reg_accuracy)
 
     def predict(self, batch):
         debug_log("進入PKA_GNN.predict")
@@ -446,9 +596,11 @@ class PKA_GNN(nn.Module):
                 order_feature = torch.tensor([[pred_order]], dtype=torch.float32, device=node_embeddings.device)
                 regression_input = torch.cat([node_embeddings[i].unsqueeze(0), order_feature / self.max_dissociation_steps], dim=1)
                 
-                # 預測pKa值
-                pka_pred = self.pka_regressor(regression_input)
-                pka_predictions.append(pka_pred.item())
+                # 預測pKa值（標準化尺度），然後轉換回原始尺度
+                scaled_pka_pred = self.pka_regressor(regression_input).item()
+                pka_pred = self.pka_scaler.inverse_transform(scaled_pka_pred)
+                
+                pka_predictions.append(pka_pred)
                 
                 # 更新節點嵌入，使用門控機制
                 node_embeddings = node_embeddings * (1 - self.rnn_gate(node_embeddings))

@@ -1326,7 +1326,9 @@ def convert_nist_data(input_file, output_file):
             smiles = row['SMILES']
             pka = row['Value'] if 'Value' in row else row['pKa'] if 'pKa' in row else None
             name = row['Ligand'] if 'Ligand' in row else row['Name'] if 'Name' in row else f"Compound-{idx}"
-            
+            eq = row['Equilibrium']
+            ionic = row['Ionic strength']
+            temp = row['Temperature (C)']
             if pd.isna(smiles) or not isinstance(smiles, str) or len(smiles) == 0:
                 error_log.append(f"跳過索引 {idx}: 無效的SMILES")
                 continue
@@ -1474,7 +1476,10 @@ def convert_nist_data(input_file, output_file):
                     'pKa': [pka],
                     'Dissociable_Atoms': [dissociable_atoms_str],
                     'Functional_Group': [functional_group_str],
-                    'Name': [name]
+                    'Name': [name],
+                    'Equilibrium': [eq],
+                    'Ionic': [ionic],
+                    'Temperature': [temp]
                 })], ignore_index=True)
                 success += 1
             else:
@@ -1503,7 +1508,10 @@ def convert_nist_data(input_file, output_file):
                                 'pKa': [pka],
                                 'Dissociable_Atoms': [':'.join(indices)],
                                 'Functional_Group': [':'.join(groups)],
-                                'Name': [name + ' (環氮估計)']
+                                'Name': [name + ' (環氮估計)'],
+                                'Equilibrium': [eq],
+                                'Ionic': [ionic],
+                                'Temperature': [temp]
                             })], ignore_index=True)
                             success += 1
                             final_attempt = True
@@ -1524,7 +1532,10 @@ def convert_nist_data(input_file, output_file):
                                 'pKa': [pka],
                                 'Dissociable_Atoms': [':'.join(indices)],
                                 'Functional_Group': [':'.join(groups)],
-                                'Name': [name + ' (環狀結構估計)']
+                                'Name': [name + ' (環狀結構估計)'],
+                                'Equilibrium': [eq],
+                                'Ionic': [ionic],
+                                'Temperature': [temp]
                             })], ignore_index=True)
                             success += 1
                             final_attempt = True
@@ -1561,7 +1572,10 @@ def convert_nist_data(input_file, output_file):
                                 'pKa': [pka],
                                 'Dissociable_Atoms': [':'.join(indices)],
                                 'Functional_Group': [':'.join(groups)],
-                                'Name': [name + ' (估計解離位點)']
+                                'Name': [name + ' (估計解離位點)'],
+                                'Equilibrium': [eq],
+                                'Ionic': [ionic],
+                                'Temperature': [temp]
                             })], ignore_index=True)
                             success += 1
                             final_attempt = True
@@ -1589,7 +1603,10 @@ def convert_nist_data(input_file, output_file):
                             'pKa': [pka],
                             'Dissociable_Atoms': [':'.join(indices)],
                             'Functional_Group': [':'.join(groups)],
-                            'Name': [name + ' (字符估計)']
+                            'Name': [name + ' (字符估計)'],
+                            'Equilibrium': [eq],
+                            'Ionic': [ionic],
+                            'Temperature': [temp]
                         })], ignore_index=True)
                         success += 1
                         final_attempt = True
@@ -1601,7 +1618,10 @@ def convert_nist_data(input_file, output_file):
                         'pKa': [pka],
                         'Dissociable_Atoms': ['0'],  # 默認第一個原子
                         'Functional_Group': ['unknown'],
-                        'Name': [name + ' (無法識別解離位點)']
+                        'Name': [name + ' (無法識別解離位點)'],
+                        'Equilibrium': [eq],
+                        'Ionic': [ionic],
+                        'Temperature': [temp]
                     })], ignore_index=True)
                     failed += 1
                     
