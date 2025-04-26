@@ -1,0 +1,13 @@
+SMILES: SCCN1CCN(CCS)CCN(CCS)CC1
+搜尋條件:
+  官能基類型: TertiaryAmine
+  pKa最小值: 10.0
+
+匹配的pKa值:
+  pKa = 10.97 => TertiaryAmine
+  pKa = 13.40 => TertiaryAmine
+results: 
+  smiles: SCCN1CCN(CCS)CCN(CCS)CC1
+  pka_values: [2.5, 8.26, 9.45, 10.97, 13.4]
+  functional_groups: [{'type': 'Thiol', 'indices': [0]}, {'type': 'Thiol', 'indices': [9]}, {'type': 'Thiol', 'indices': [15]}, {'type': 'TertiaryAmine', 'indices': [3]}, {'type': 'TertiaryAmine', 'indices': [6]}, {'type': 'TertiaryAmine', 'indices': [12]}]
+  mapping: {2.5: {'type': 'Thiol', 'indices': [0]}, 8.26: {'type': 'Thiol', 'indices': [9]}, 9.45: {'type': 'Thiol', 'indices': [15]}, 10.97: {'type': 'TertiaryAmine', 'indices': [3]}, 13.4: {'type': 'TertiaryAmine', 'indices': [6]}}

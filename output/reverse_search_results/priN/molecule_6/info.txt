@@ -1,0 +1,14 @@
+SMILES: NNC(=O)NN
+搜尋條件:
+  官能基類型: PrimaryAmine
+  pKa最小值: 0.0
+  pKa最大值: 6.0
+
+匹配的pKa值:
+  pKa = 2.09 => PrimaryAmine (guess)
+  pKa = 4.14 => PrimaryAmine (guess)
+results: 
+  smiles: NNC(=O)NN
+  pka_values: [2.09, 4.14]
+  functional_groups: [{'type': 'PrimaryAmine', 'indices': [0]}, {'type': 'PrimaryAmine', 'indices': [5]}]
+  mapping: {2.09: {'type': 'PrimaryAmine (guess)', 'indices': [0]}, 4.14: {'type': 'PrimaryAmine (guess)', 'indices': [5]}}

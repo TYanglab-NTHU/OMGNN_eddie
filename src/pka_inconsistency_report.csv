@@ -1,0 +1,24 @@
+row_number,error,row_content,smiles,expected_pka_count,actual_pka_count,pka_values
+1,invalid literal for int() with base 10: 'pKa_num',"SMILES,pKa_num,pKa_value",,,,
+937,,,CC(C)(S)C(O)=O,2.0,1.0,3.90
+1027,,,NCCCCCCC(O)=O,2.0,1.0,4.50
+1144,,,NCCc1ccccc1O,2.0,1.0,9.27
+1226,,,CC(C)c1cccc(C(O)=O)c1O,2.0,1.0,2.76
+1356,,,O=C1C=CNC=C1,2.0,1.0,3.38
+1467,,,CN(C)c1ccccc1C(O)=O,2.0,1.0,1.60
+1524,,,CN1CCN2CCCNCCCN(CC1)CCN(C)CC2,2.0,1.0,8.41
+1598,,,Cc1cccc(O)c1C(O)=O,2.0,1.0,3.24
+1606,,,Oc1ccc2c(Oc3c(O)c(O)ccc3[C@]24O[S](=O)(=O)c5ccccc45)c1O,3.0,1.0,6.50
+1641,,,Oc1cc(O)cc(O)c1,3.0,2.0,"8.42,8.76"
+1662,,,OC(=O)c1cccc(C(O)=O)c1O,3.0,2.0,"2.13,4.53"
+1787,,,OOc1ccc(O)cc1,3.0,2.0,"9.02,11.38"
+1799,,,OC(=O)c1cccc(O)c1O,3.0,2.0,"2.76,9.80"
+1816,,,OC(=O)c1cc(cc(O)c1O)[S](O)(=O)=O,3.0,1.0,2.43
+1930,,,OC(=O)CN(CC(O)=O)c1cc(C(O)=O)c(O)cc1C(O)=O,5.0,4.0,"1.60,2.20,3.18,8.61"
+1943,,,C1CCCCNCCNCCNCCCCCCCCCNCCNCCNCCCC1,6.0,4.0,"3.55,4.15,9.25,9.60"
+1945,,,CN(Cc1cc(CN(C)C(=O)c2cc(cc(O)c2O)[S](O)(=O)=O)cc(CN(C)C(=O)c3cc(cc(O)c3O)[S](O)(=O)=O)c1)C(=O)c4cc(cc(O)c4O)[S](O)(=O)=O,6.0,3.0,"6.76,7.55,8.54"
+1946,,,C1CCCCCNCCCNCCCNCCCCCCCCCCNCCCNCCCNCCCC1,6.0,5.0,"7.30,7.95,9.60,10.10,10.30"
+1949,,,Oc1cccc(C(=O)NC2COC(=O)C(COC(=O)C(COC2=O)NC(=O)c3cccc(O)c3O)NC(=O)c4cccc(O)c4O)c1O,6.0,3.0,"6.00,7.50,8.55"
+1950,,,Oc1cccc(C(=O)NCc2cc(CNC(=O)c3cccc(O)c3O)cc(CNC(=O)c4cccc(O)c4O)c2)c1O,6.0,3.0,"5.90,7.40,8.40"
+1952,,,CC(C)N(Cc1cc(CN(C(C)C)C(=O)c2cc(cc(O)c2O)[S](O)(=O)=O)cc(CN(C(C)C)C(=O)c3cc(cc(O)c3O)[S](O)(=O)=O)c1)C(=O)c4cc(cc(O)c4O)[S](O)(=O)=O,6.0,3.0,"6.60,7.85,8.61"
+1954,,,CC(=O)N(Cc1cc(CN(C(C)=O)C(=O)c2cc(cc(O)c2O)[S](O)(=O)=O)cc(CN(C(C)=O)C(=O)c3cc(cc(O)c3O)[S](O)(=O)=O)c1)C(=O)c4cc(cc(O)c4O)[S](O)(=O)=O,6.0,3.0,"7.70,8.40,9.30"

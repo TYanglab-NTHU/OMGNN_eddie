@@ -1,0 +1,11 @@
+SMILES: NCC(=O)NCC(=O)N[C@@H](CS)C(O)=O
+搜尋條件:
+  官能基類型: Thiol
+
+匹配的pKa值:
+  pKa = 9.48 => Thiol
+results: 
+  smiles: NCC(=O)NCC(=O)N[C@@H](CS)C(O)=O
+  pka_values: [3.07, 7.82, 9.48]
+  functional_groups: [{'type': 'COOH', 'indices': [13]}, {'type': 'Thiol', 'indices': [11]}, {'type': 'PrimaryAmine', 'indices': [0]}]
+  mapping: {3.07: {'type': 'COOH', 'indices': [13]}, 7.82: {'type': 'PrimaryAmine', 'indices': [0]}, 9.48: {'type': 'Thiol', 'indices': [11]}}

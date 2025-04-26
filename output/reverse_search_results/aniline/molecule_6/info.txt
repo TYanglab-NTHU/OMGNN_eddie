@@ -1,0 +1,12 @@
+SMILES: Nc1ccccc1O
+搜尋條件:
+  官能基類型: Aniline
+  pKa最小值: 7.0
+
+匹配的pKa值:
+  pKa = 9.84 => Aniline (guess)
+results: 
+  smiles: Nc1ccccc1O
+  pka_values: [4.78, 9.84]
+  functional_groups: [{'type': 'Phenol', 'indices': [7]}, {'type': 'Aniline', 'indices': [0]}]
+  mapping: {4.78: {'type': 'Phenol', 'indices': [7]}, 9.84: {'type': 'Aniline (guess)', 'indices': [0]}}

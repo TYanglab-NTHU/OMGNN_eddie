@@ -1,0 +1,54 @@
+==================================================
+pKa 反向搜尋結果摘要
+==================================================
+
+搜尋條件:
+  官能基類型: COOH
+  pKa最小值: 8.0
+
+找到 4 個符合條件的分子
+
+--------------------------------------------------
+分子 1:
+SMILES: CCC(C)C(CC)(C(O)=O)C(O)=O
+匹配的pKa值及對應官能基:
+  pKa = 8.40 => COOH (guess)
+
+圖像檔案:
+  分子結構: molecule_1/molecule_1.png
+  含pKa標記: molecule_1/molecule_1_with_pka.png
+  詳細資訊: molecule_1/info.txt
+
+--------------------------------------------------
+分子 2:
+SMILES: OC(O)=C1OC(=CC(=O)C1=O)C(O)=O
+匹配的pKa值及對應官能基:
+  pKa = 9.82 => COOH (guess)
+
+圖像檔案:
+  分子結構: molecule_2/molecule_2.png
+  含pKa標記: molecule_2/molecule_2_with_pka.png
+  詳細資訊: molecule_2/info.txt
+
+--------------------------------------------------
+分子 3:
+SMILES: CCC(CC)(C(O)=O)C(CC)(CC)C(O)=O
+匹配的pKa值及對應官能基:
+  pKa = 8.06 => COOH (guess)
+
+圖像檔案:
+  分子結構: molecule_3/molecule_3.png
+  含pKa標記: molecule_3/molecule_3_with_pka.png
+  詳細資訊: molecule_3/info.txt
+
+--------------------------------------------------
+分子 4:
+SMILES: OC(O)=O
+匹配的pKa值及對應官能基:
+  pKa = 9.75 => COOH (guess)
+
+圖像檔案:
+  分子結構: molecule_4/molecule_4.png
+  含pKa標記: molecule_4/molecule_4_with_pka.png
+  詳細資訊: molecule_4/info.txt
+

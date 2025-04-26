@@ -1,0 +1,12 @@
+SMILES: Cc1ccc(O)c(CN2CCN(CCN(CC2)Cc3nc(C)ccc3O)Cc4nc(C)ccc4O)n1
+搜尋條件:
+  官能基類型: Pyridine
+  pKa最小值: 7.0
+
+匹配的pKa值:
+  pKa = 7.00 => Pyridine
+results: 
+  smiles: Cc1ccc(O)c(CN2CCN(CCN(CC2)Cc3nc(C)ccc3O)Cc4nc(C)ccc4O)n1
+  pka_values: [4.28, 5.35, 7.0, 9.73, 10.86, 12.1]
+  functional_groups: [{'type': 'Phenol', 'indices': [5]}, {'type': 'Phenol', 'indices': [25]}, {'type': 'Phenol', 'indices': [34]}, {'type': 'Pyridine', 'indices': [35]}, {'type': 'Pyridine', 'indices': [19]}, {'type': 'Pyridine', 'indices': [28]}, {'type': 'TertiaryAmine', 'indices': [8]}, {'type': 'TertiaryAmine', 'indices': [11]}, {'type': 'TertiaryAmine', 'indices': [14]}]
+  mapping: {4.28: {'type': 'Pyridine', 'indices': [35]}, 5.35: {'type': 'Pyridine', 'indices': [19]}, 7.0: {'type': 'Pyridine', 'indices': [28]}, 9.73: {'type': 'Phenol', 'indices': [5]}, 10.86: {'type': 'TertiaryAmine', 'indices': [8]}, 12.1: {'type': 'TertiaryAmine', 'indices': [11]}}

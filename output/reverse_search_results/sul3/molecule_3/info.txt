@@ -1,0 +1,12 @@
+SMILES: NCCNCc1[nH]cc(c1)[S](O)(=O)=O
+搜尋條件:
+  官能基類型: SulfonicAcid
+  pKa最小值: 5.0
+
+匹配的pKa值:
+  pKa = 6.56 => SulfonicAcid (guess)
+results: 
+  smiles: NCCNCc1[nH]cc(c1)[S](O)(=O)=O
+  pka_values: [6.56, 9.74]
+  functional_groups: [{'type': 'SulfonicAcid', 'indices': [11]}, {'type': 'SecondaryAmine', 'indices': [3]}, {'type': 'PrimaryAmine', 'indices': [0]}]
+  mapping: {6.56: {'type': 'SulfonicAcid (guess)', 'indices': [11]}, 9.74: {'type': 'PrimaryAmine', 'indices': [0]}}

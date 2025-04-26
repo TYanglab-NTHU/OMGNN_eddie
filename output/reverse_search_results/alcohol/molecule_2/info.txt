@@ -1,0 +1,11 @@
+SMILES: CC1=CN([C@H]2C[C@H](O)[C@@H](CO)O2)C(=O)NC1=O
+搜尋條件:
+  官能基類型: Alcohol
+
+匹配的pKa值:
+  pKa = 9.67 => Alcohol
+results: 
+  smiles: CC1=CN([C@H]2C[C@H](O)[C@@H](CO)O2)C(=O)NC1=O
+  pka_values: [9.67]
+  functional_groups: [{'type': 'Alcohol', 'indices': [7]}, {'type': 'Alcohol', 'indices': [10]}]
+  mapping: {9.67: {'type': 'Alcohol', 'indices': [7]}}

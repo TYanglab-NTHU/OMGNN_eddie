@@ -1,0 +1,13 @@
+SMILES: N[C@@H](Cc1ccc(O)cc1)C(=O)NO
+搜尋條件:
+  官能基類型: Phenol
+  pKa最小值: 0.0
+  pKa最大值: 8.0
+
+匹配的pKa值:
+  pKa = 6.96 => Phenol
+results: 
+  smiles: N[C@@H](Cc1ccc(O)cc1)C(=O)NO
+  pka_values: [6.96, 8.92, 9.93]
+  functional_groups: [{'type': 'Phenol', 'indices': [7]}, {'type': 'NHydroxylamine', 'indices': [13]}, {'type': 'PrimaryAmine', 'indices': [0]}]
+  mapping: {6.96: {'type': 'Phenol', 'indices': [7]}, 8.92: {'type': 'PrimaryAmine', 'indices': [0]}, 9.93: {'type': 'NHydroxylamine', 'indices': [13]}}

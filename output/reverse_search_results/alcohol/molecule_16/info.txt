@@ -1,0 +1,11 @@
+SMILES: CSc1ncnc2n(cnc12)[C@@H]3O[C@H](CO)[C@@H](O)[C@H]3O
+搜尋條件:
+  官能基類型: Alcohol
+
+匹配的pKa值:
+  pKa = 1.10 => Alcohol (guess)
+results: 
+  smiles: CSc1ncnc2n(cnc12)[C@@H]3O[C@H](CO)[C@@H](O)[C@H]3O
+  pka_values: [1.1]
+  functional_groups: [{'type': 'Alcohol', 'indices': [15]}, {'type': 'Alcohol', 'indices': [17]}, {'type': 'Alcohol', 'indices': [19]}]
+  mapping: {1.1: {'type': 'Alcohol (guess)', 'indices': [15]}}

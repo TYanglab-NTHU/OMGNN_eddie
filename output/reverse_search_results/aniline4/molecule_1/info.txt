@@ -1,0 +1,12 @@
+SMILES: Cc1ccnc(N)c1
+搜尋條件:
+  官能基類型: Aniline
+  pKa最小值: 6.0
+
+匹配的pKa值:
+  pKa = 7.47 => Aniline
+results: 
+  smiles: Cc1ccnc(N)c1
+  pka_values: [7.47]
+  functional_groups: [{'type': 'Pyridine', 'indices': [4]}, {'type': 'Aniline', 'indices': [6]}]
+  mapping: {7.47: {'type': 'Aniline', 'indices': [6]}}

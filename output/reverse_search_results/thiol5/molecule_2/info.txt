@@ -1,0 +1,13 @@
+SMILES: [O-][N+](=O)c1ccccc1S
+搜尋條件:
+  官能基類型: Thiol
+  pKa最小值: 0.0
+  pKa最大值: 6.0
+
+匹配的pKa值:
+  pKa = 5.45 => Thiol (guess)
+results: 
+  smiles: [O-][N+](=O)c1ccccc1S
+  pka_values: [5.45]
+  functional_groups: [{'type': 'Thiol', 'indices': [9]}]
+  mapping: {5.45: {'type': 'Thiol (guess)', 'indices': [9]}}

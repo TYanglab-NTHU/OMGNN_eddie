@@ -1,0 +1,11 @@
+SMILES: Nc1ccccc1[S](O)(=O)=O
+搜尋條件:
+  官能基類型: SulfonicAcid
+
+匹配的pKa值:
+  pKa = 2.42 => SulfonicAcid
+results: 
+  smiles: Nc1ccccc1[S](O)(=O)=O
+  pka_values: [2.42]
+  functional_groups: [{'type': 'SulfonicAcid', 'indices': [8]}, {'type': 'Aniline', 'indices': [0]}]
+  mapping: {2.42: {'type': 'SulfonicAcid', 'indices': [8]}}

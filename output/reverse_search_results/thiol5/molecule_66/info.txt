@@ -1,0 +1,11 @@
+SMILES: OC(=O)[C@H](Cc1c[nH]cn1)NC(=O)CNC(=O)CS
+搜尋條件:
+  官能基類型: Thiol
+
+匹配的pKa值:
+  pKa = 8.65 => Thiol
+results: 
+  smiles: OC(=O)[C@H](Cc1c[nH]cn1)NC(=O)CNC(=O)CS
+  pka_values: [3.47, 7.1, 8.65]
+  functional_groups: [{'type': 'COOH', 'indices': [0]}, {'type': 'Thiol', 'indices': [18]}, {'type': 'Imidazole', 'indices': [9]}]
+  mapping: {3.47: {'type': 'COOH', 'indices': [0]}, 7.1: {'type': 'Imidazole', 'indices': [9]}, 8.65: {'type': 'Thiol', 'indices': [18]}}

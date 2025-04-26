@@ -1,0 +1,87 @@
+==================================================
+pKa 反向搜尋結果摘要
+==================================================
+
+搜尋條件:
+  官能基類型: SulfonicAcid
+  pKa最小值: 5.0
+
+找到 7 個符合條件的分子
+
+--------------------------------------------------
+分子 1:
+SMILES: Oc1cccc2cccc(c12)[S](O)(=O)=O
+匹配的pKa值及對應官能基:
+  pKa = 12.57 => SulfonicAcid (guess)
+
+圖像檔案:
+  分子結構: molecule_1/molecule_1.png
+  含pKa標記: molecule_1/molecule_1_with_pka.png
+  詳細資訊: molecule_1/info.txt
+
+--------------------------------------------------
+分子 2:
+SMILES: Oc1cc(cc2cccc(c12)[S](O)(=O)=O)[S](O)(=O)=O
+匹配的pKa值及對應官能基:
+  pKa = 11.40 => SulfonicAcid (guess)
+
+圖像檔案:
+  分子結構: molecule_2/molecule_2.png
+  含pKa標記: molecule_2/molecule_2_with_pka.png
+  詳細資訊: molecule_2/info.txt
+
+--------------------------------------------------
+分子 3:
+SMILES: NCCNCc1[nH]cc(c1)[S](O)(=O)=O
+匹配的pKa值及對應官能基:
+  pKa = 6.56 => SulfonicAcid (guess)
+
+圖像檔案:
+  分子結構: molecule_3/molecule_3.png
+  含pKa標記: molecule_3/molecule_3_with_pka.png
+  詳細資訊: molecule_3/info.txt
+
+--------------------------------------------------
+分子 4:
+SMILES: OC(=O)c1cc(cc(c1O)[S](O)(=O)=O)[S](O)(=O)=O
+匹配的pKa值及對應官能基:
+  pKa = 11.52 => SulfonicAcid (guess)
+
+圖像檔案:
+  分子結構: molecule_4/molecule_4.png
+  含pKa標記: molecule_4/molecule_4_with_pka.png
+  詳細資訊: molecule_4/info.txt
+
+--------------------------------------------------
+分子 5:
+SMILES: OC(=O)c1cc(ccc1O)N=Nc2ccc(cc2)[S](O)(=O)=O
+匹配的pKa值及對應官能基:
+  pKa = 11.04 => SulfonicAcid (guess)
+
+圖像檔案:
+  分子結構: molecule_5/molecule_5.png
+  含pKa標記: molecule_5/molecule_5_with_pka.png
+  詳細資訊: molecule_5/info.txt
+
+--------------------------------------------------
+分子 6:
+SMILES: OC(=O)c1cc(ccc1O)[S](O)(=O)=O
+匹配的pKa值及對應官能基:
+  pKa = 11.78 => SulfonicAcid (guess)
+
+圖像檔案:
+  分子結構: molecule_6/molecule_6.png
+  含pKa標記: molecule_6/molecule_6_with_pka.png
+  詳細資訊: molecule_6/info.txt
+
+--------------------------------------------------
+分子 7:
+SMILES: Oc1ccc(cc1O)[S](O)(=O)=O
+匹配的pKa值及對應官能基:
+  pKa = 12.48 => SulfonicAcid (guess)
+
+圖像檔案:
+  分子結構: molecule_7/molecule_7.png
+  含pKa標記: molecule_7/molecule_7_with_pka.png
+  詳細資訊: molecule_7/info.txt
+

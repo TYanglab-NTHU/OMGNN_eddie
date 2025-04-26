@@ -1,0 +1,13 @@
+SMILES: Cc1ccc2c(ccc(O)c2n1)[S](O)(=O)=O
+搜尋條件:
+  官能基類型: Phenol
+  pKa最小值: 0.0
+  pKa最大值: 8.0
+
+匹配的pKa值:
+  pKa = 4.63 => Phenol
+results: 
+  smiles: Cc1ccc2c(ccc(O)c2n1)[S](O)(=O)=O
+  pka_values: [4.63, 8.72]
+  functional_groups: [{'type': 'SulfonicAcid', 'indices': [13]}, {'type': 'Phenol', 'indices': [9]}, {'type': 'Pyridine', 'indices': [11]}]
+  mapping: {4.63: {'type': 'Phenol', 'indices': [9]}, 8.72: {'type': 'Pyridine', 'indices': [11]}}

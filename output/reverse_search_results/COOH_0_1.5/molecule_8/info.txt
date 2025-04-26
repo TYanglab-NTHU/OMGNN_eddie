@@ -1,0 +1,13 @@
+SMILES: CNc1cc(nc(c1)C(O)=O)C(O)=O
+搜尋條件:
+  官能基類型: COOH
+  pKa最小值: 0.0
+  pKa最大值: 1.5
+
+匹配的pKa值:
+  pKa = 1.30 => COOH
+results: 
+  smiles: CNc1cc(nc(c1)C(O)=O)C(O)=O
+  pka_values: [1.3, 9.68]
+  functional_groups: [{'type': 'COOH', 'indices': [9]}, {'type': 'COOH', 'indices': [12]}, {'type': 'Pyridine', 'indices': [5]}, {'type': 'SecondaryAmine', 'indices': [1]}]
+  mapping: {1.3: {'type': 'COOH', 'indices': [9]}, 9.68: {'type': 'Pyridine', 'indices': [5]}}

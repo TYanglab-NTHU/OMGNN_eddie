@@ -1,0 +1,11 @@
+SMILES: OCCS
+搜尋條件:
+  官能基類型: Thiol
+
+匹配的pKa值:
+  pKa = 9.46 => Thiol
+results: 
+  smiles: OCCS
+  pka_values: [9.46]
+  functional_groups: [{'type': 'Thiol', 'indices': [3]}]
+  mapping: {9.46: {'type': 'Thiol', 'indices': [3]}}

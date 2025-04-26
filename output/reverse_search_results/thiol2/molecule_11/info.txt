@@ -1,0 +1,12 @@
+SMILES: OC(=O)CC(S)C(O)=O
+搜尋條件:
+  官能基類型: Thiol
+  pKa最小值: 10.0
+
+匹配的pKa值:
+  pKa = 10.13 => Thiol
+results: 
+  smiles: OC(=O)CC(S)C(O)=O
+  pka_values: [3.14, 4.58, 10.13]
+  functional_groups: [{'type': 'COOH', 'indices': [0]}, {'type': 'COOH', 'indices': [7]}, {'type': 'Thiol', 'indices': [5]}]
+  mapping: {3.14: {'type': 'COOH', 'indices': [0]}, 4.58: {'type': 'COOH', 'indices': [7]}, 10.13: {'type': 'Thiol', 'indices': [5]}}

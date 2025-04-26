@@ -1,0 +1,12 @@
+SMILES: [SeH]c1cccc2cccnc12
+搜尋條件:
+  官能基類型: Pyridine
+  pKa最小值: 7.0
+
+匹配的pKa值:
+  pKa = 8.41 => Pyridine
+results: 
+  smiles: [SeH]c1cccc2cccnc12
+  pka_values: [8.41]
+  functional_groups: [{'type': 'Pyridine', 'indices': [9]}]
+  mapping: {8.41: {'type': 'Pyridine', 'indices': [9]}}

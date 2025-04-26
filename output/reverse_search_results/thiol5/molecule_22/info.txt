@@ -1,0 +1,11 @@
+SMILES: COc1ccccc1S
+搜尋條件:
+  官能基類型: Thiol
+
+匹配的pKa值:
+  pKa = 6.89 => Thiol
+results: 
+  smiles: COc1ccccc1S
+  pka_values: [6.89]
+  functional_groups: [{'type': 'Thiol', 'indices': [8]}]
+  mapping: {6.89: {'type': 'Thiol', 'indices': [8]}}

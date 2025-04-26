@@ -1,0 +1,11 @@
+SMILES: Oc1ccc(cc1O)C(=C\2C=CC(=O)C(=C2)O)/c3ccccc3[S](O)(=O)=O
+搜尋條件:
+  官能基類型: Alcohol
+
+匹配的pKa值:
+  pKa = 12.80 => Alcohol
+results: 
+  smiles: Oc1ccc(cc1O)C(=C\2C=CC(=O)C(=C2)O)/c3ccccc3[S](O)(=O)=O
+  pka_values: [0.8, 7.8, 9.76, 12.8]
+  functional_groups: [{'type': 'SulfonicAcid', 'indices': [24]}, {'type': 'Phenol', 'indices': [0]}, {'type': 'Phenol', 'indices': [7]}, {'type': 'Alcohol', 'indices': [16]}]
+  mapping: {0.8: {'type': 'SulfonicAcid', 'indices': [24]}, 7.8: {'type': 'Phenol', 'indices': [0]}, 9.76: {'type': 'Phenol', 'indices': [7]}, 12.8: {'type': 'Alcohol', 'indices': [16]}}

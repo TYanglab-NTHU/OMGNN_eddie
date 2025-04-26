@@ -1,0 +1,12 @@
+SMILES: Nc1nc(N)c2[nH]cnc2n1
+搜尋條件:
+  官能基類型: Aniline
+  pKa最小值: 6.0
+
+匹配的pKa值:
+  pKa = 10.32 => Aniline
+results: 
+  smiles: Nc1nc(N)c2[nH]cnc2n1
+  pka_values: [4.96, 10.32]
+  functional_groups: [{'type': 'Imidazole', 'indices': [8]}, {'type': 'Aniline', 'indices': [0]}, {'type': 'Aniline', 'indices': [4]}]
+  mapping: {4.96: {'type': 'Aniline', 'indices': [0]}, 10.32: {'type': 'Aniline', 'indices': [4]}}

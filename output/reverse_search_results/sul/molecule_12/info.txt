@@ -1,0 +1,11 @@
+SMILES: Oc1c(cc(c2cccnc12)[S](O)(=O)=O)[N+]([O-])=O
+搜尋條件:
+  官能基類型: SulfonicAcid
+
+匹配的pKa值:
+  pKa = 1.81 => SulfonicAcid
+results: 
+  smiles: Oc1c(cc(c2cccnc12)[S](O)(=O)=O)[N+]([O-])=O
+  pka_values: [1.81, 5.34]
+  functional_groups: [{'type': 'SulfonicAcid', 'indices': [12]}, {'type': 'Phenol', 'indices': [0]}, {'type': 'Pyridine', 'indices': [9]}]
+  mapping: {1.81: {'type': 'SulfonicAcid', 'indices': [12]}, 5.34: {'type': 'Phenol', 'indices': [0]}}

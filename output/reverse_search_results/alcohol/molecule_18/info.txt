@@ -1,0 +1,11 @@
+SMILES: NC1=Nc2n(cnc2C(=O)N1)[C@H]3C[C@H](O)[C@@H](CO)O3
+搜尋條件:
+  官能基類型: Alcohol
+
+匹配的pKa值:
+  pKa = 9.11 => Alcohol
+results: 
+  smiles: NC1=Nc2n(cnc2C(=O)N1)[C@H]3C[C@H](O)[C@@H](CO)O3
+  pka_values: [2.12, 9.11]
+  functional_groups: [{'type': 'PrimaryAmine', 'indices': [0]}, {'type': 'Alcohol', 'indices': [14]}, {'type': 'Alcohol', 'indices': [17]}]
+  mapping: {2.12: {'type': 'PrimaryAmine', 'indices': [0]}, 9.11: {'type': 'Alcohol', 'indices': [14]}}

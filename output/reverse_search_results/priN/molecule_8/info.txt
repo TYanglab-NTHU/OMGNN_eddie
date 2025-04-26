@@ -1,0 +1,13 @@
+SMILES: NCC(N)CN
+搜尋條件:
+  官能基類型: PrimaryAmine
+  pKa最小值: 0.0
+  pKa最大值: 6.0
+
+匹配的pKa值:
+  pKa = 3.83 => PrimaryAmine (guess)
+results: 
+  smiles: NCC(N)CN
+  pka_values: [3.83, 7.99, 9.59]
+  functional_groups: [{'type': 'PrimaryAmine', 'indices': [0]}, {'type': 'PrimaryAmine', 'indices': [3]}, {'type': 'PrimaryAmine', 'indices': [5]}]
+  mapping: {3.83: {'type': 'PrimaryAmine (guess)', 'indices': [0]}, 7.99: {'type': 'PrimaryAmine', 'indices': [3]}, 9.59: {'type': 'PrimaryAmine', 'indices': [5]}}

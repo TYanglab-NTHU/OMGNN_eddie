@@ -1,0 +1,10 @@
+SMILES: CC[C@H](C)[C@H](NC(=O)[C@H](Cc1ccc(O)cc1)NC(C)=O)C(=O)N[C@@H](Cc2c[nH]cn2)C(O)=O
+搜尋條件:
+  官能基類型: COOH
+  pKa最小值: 9.0
+  pKa最大值: 13.0
+
+匹配的pKa值:
+  pKa = 9.78 => COOH (guess)
+results: 
+{'smiles': 'CC[C@H](C)[C@H](NC(=O)[C@H](Cc1ccc(O)cc1)NC(C)=O)C(=O)N[C@@H](Cc2c[nH]cn2)C(O)=O', 'pka_values': [2.95, 7.02, 9.78], 'functional_groups': [{'type': 'COOH', 'indices': [31, 33, 32]}, {'type': 'Phenol', 'indices': [14, 13]}], 'mapping': {2.95: {'type': 'COOH', 'indices': [31, 33, 32]}, 7.02: {'type': 'Phenol (guess)', 'indices': [14, 13]}, 9.78: {'type': 'COOH (guess)', 'indices': [31, 33, 32]}}}

@@ -1,0 +1,12 @@
+SMILES: OC(O)=O
+搜尋條件:
+  官能基類型: COOH
+  pKa最小值: 8.0
+
+匹配的pKa值:
+  pKa = 9.75 => COOH (guess)
+results: 
+  smiles: OC(O)=O
+  pka_values: [6.12, 9.75]
+  functional_groups: [{'type': 'COOH', 'indices': [0]}, {'type': 'COOH', 'indices': [2]}]
+  mapping: {6.12: {'type': 'COOH', 'indices': [0]}, 9.75: {'type': 'COOH (guess)', 'indices': [2]}}

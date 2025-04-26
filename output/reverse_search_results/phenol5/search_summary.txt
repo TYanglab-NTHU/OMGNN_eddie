@@ -1,0 +1,401 @@
+==================================================
+pKa 反向搜尋結果摘要
+==================================================
+
+搜尋條件:
+  官能基類型: Phenol
+  pKa最小值: 0.0
+  pKa最大值: 7.5
+
+找到 35 個符合條件的分子
+
+--------------------------------------------------
+分子 1:
+SMILES: Oc1ccc(cc1Br)C2(O[S](=O)(=O)c3ccccc23)c4ccc(O)c(Br)c4
+匹配的pKa值及對應官能基:
+  pKa = 6.14 => Phenol
+
+圖像檔案:
+  分子結構: molecule_1/molecule_1.png
+  含pKa標記: molecule_1/molecule_1_with_pka.png
+  詳細資訊: molecule_1/info.txt
+
+--------------------------------------------------
+分子 2:
+SMILES: Oc1c(cccc1[N+]([O-])=O)[N+]([O-])=O
+匹配的pKa值及對應官能基:
+  pKa = 3.72 => Phenol
+
+圖像檔案:
+  分子結構: molecule_2/molecule_2.png
+  含pKa標記: molecule_2/molecule_2_with_pka.png
+  詳細資訊: molecule_2/info.txt
+
+--------------------------------------------------
+分子 3:
+SMILES: Oc1c2ccccc2ccc1[N+]([O-])=O
+匹配的pKa值及對應官能基:
+  pKa = 5.73 => Phenol
+
+圖像檔案:
+  分子結構: molecule_3/molecule_3.png
+  含pKa標記: molecule_3/molecule_3_with_pka.png
+  詳細資訊: molecule_3/info.txt
+
+--------------------------------------------------
+分子 4:
+SMILES: Oc1ccc(cc1[N+]([O-])=O)[N+]([O-])=O
+匹配的pKa值及對應官能基:
+  pKa = 4.02 => Phenol
+
+圖像檔案:
+  分子結構: molecule_4/molecule_4.png
+  含pKa標記: molecule_4/molecule_4_with_pka.png
+  詳細資訊: molecule_4/info.txt
+
+--------------------------------------------------
+分子 5:
+SMILES: Oc1ccc2ccccc2c1[N+]([O-])=O
+匹配的pKa值及對應官能基:
+  pKa = 5.75 => Phenol
+
+圖像檔案:
+  分子結構: molecule_5/molecule_5.png
+  含pKa標記: molecule_5/molecule_5_with_pka.png
+  詳細資訊: molecule_5/info.txt
+
+--------------------------------------------------
+分子 6:
+SMILES: Oc1c(cc(cc1[N+]([O-])=O)[N+]([O-])=O)[N+]([O-])=O
+匹配的pKa值及對應官能基:
+  pKa = 0.22 => Phenol
+
+圖像檔案:
+  分子結構: molecule_6/molecule_6.png
+  含pKa標記: molecule_6/molecule_6_with_pka.png
+  詳細資訊: molecule_6/info.txt
+
+--------------------------------------------------
+分子 7:
+SMILES: Oc1ccc(cc1)N=O
+匹配的pKa值及對應官能基:
+  pKa = 6.33 => Phenol
+
+圖像檔案:
+  分子結構: molecule_7/molecule_7.png
+  含pKa標記: molecule_7/molecule_7_with_pka.png
+  詳細資訊: molecule_7/info.txt
+
+--------------------------------------------------
+分子 8:
+SMILES: Oc1ccc(c(c1)[N+]([O-])=O)[N+]([O-])=O
+匹配的pKa值及對應官能基:
+  pKa = 5.42 => Phenol
+
+圖像檔案:
+  分子結構: molecule_8/molecule_8.png
+  含pKa標記: molecule_8/molecule_8_with_pka.png
+  詳細資訊: molecule_8/info.txt
+
+--------------------------------------------------
+分子 9:
+SMILES: Oc1cc(cc(c1)[N+]([O-])=O)[N+]([O-])=O
+匹配的pKa值及對應官能基:
+  pKa = 6.73 => Phenol
+
+圖像檔案:
+  分子結構: molecule_9/molecule_9.png
+  含pKa標記: molecule_9/molecule_9_with_pka.png
+  詳細資訊: molecule_9/info.txt
+
+--------------------------------------------------
+分子 10:
+SMILES: Oc1cc(ccc1[N+]([O-])=O)[N+]([O-])=O
+匹配的pKa值及對應官能基:
+  pKa = 5.25 => Phenol
+
+圖像檔案:
+  分子結構: molecule_10/molecule_10.png
+  含pKa標記: molecule_10/molecule_10_with_pka.png
+  詳細資訊: molecule_10/info.txt
+
+--------------------------------------------------
+分子 11:
+SMILES: CC1=CC(=CC(=O)O1)O
+匹配的pKa值及對應官能基:
+  pKa = 4.76 => Phenol
+
+圖像檔案:
+  分子結構: molecule_11/molecule_11.png
+  含pKa標記: molecule_11/molecule_11_with_pka.png
+  詳細資訊: molecule_11/info.txt
+
+--------------------------------------------------
+分子 12:
+SMILES: OCC1=CC(=O)C(=C(I)O1)O
+匹配的pKa值及對應官能基:
+  pKa = 6.53 => Phenol
+
+圖像檔案:
+  分子結構: molecule_12/molecule_12.png
+  含pKa標記: molecule_12/molecule_12_with_pka.png
+  詳細資訊: molecule_12/info.txt
+
+--------------------------------------------------
+分子 13:
+SMILES: OC1=C(Br)C=CC=CC1=O
+匹配的pKa值及對應官能基:
+  pKa = 5.14 => Phenol
+
+圖像檔案:
+  分子結構: molecule_13/molecule_13.png
+  含pKa標記: molecule_13/molecule_13_with_pka.png
+  詳細資訊: molecule_13/info.txt
+
+--------------------------------------------------
+分子 14:
+SMILES: OC1=CC(=O)Oc2ccccc12
+匹配的pKa值及對應官能基:
+  pKa = 4.11 => Phenol
+
+圖像檔案:
+  分子結構: molecule_14/molecule_14.png
+  含pKa標記: molecule_14/molecule_14_with_pka.png
+  詳細資訊: molecule_14/info.txt
+
+--------------------------------------------------
+分子 15:
+SMILES: OC1=CC=C(C=CC1=O)C#N
+匹配的pKa值及對應官能基:
+  pKa = 3.72 => Phenol
+
+圖像檔案:
+  分子結構: molecule_15/molecule_15.png
+  含pKa標記: molecule_15/molecule_15_with_pka.png
+  詳細資訊: molecule_15/info.txt
+
+--------------------------------------------------
+分子 16:
+SMILES: CN1N(c2ccccc2)C(=O)C(=C1C)O
+匹配的pKa值及對應官能基:
+  pKa = 1.50 => Phenol
+
+圖像檔案:
+  分子結構: molecule_16/molecule_16.png
+  含pKa標記: molecule_16/molecule_16_with_pka.png
+  詳細資訊: molecule_16/info.txt
+
+--------------------------------------------------
+分子 17:
+SMILES: Cc1cc(cc(Br)c1O)C2(O[S](=O)(=O)c3ccccc23)c4cc(C)c(O)c(Br)c4
+匹配的pKa值及對應官能基:
+  pKa = 6.20 => Phenol
+
+圖像檔案:
+  分子結構: molecule_17/molecule_17.png
+  含pKa標記: molecule_17/molecule_17_with_pka.png
+  詳細資訊: molecule_17/info.txt
+
+--------------------------------------------------
+分子 18:
+SMILES: Cc1c(Br)c(O)c(Br)cc1C2(O[S](=O)(=O)c3ccccc23)c4cc(Br)c(O)c(Br)c4C
+匹配的pKa值及對應官能基:
+  pKa = 4.68 => Phenol
+
+圖像檔案:
+  分子結構: molecule_18/molecule_18.png
+  含pKa標記: molecule_18/molecule_18_with_pka.png
+  詳細資訊: molecule_18/info.txt
+
+--------------------------------------------------
+分子 19:
+SMILES: Oc1ccccc1C#N
+匹配的pKa值及對應官能基:
+  pKa = 6.86 => Phenol
+
+圖像檔案:
+  分子結構: molecule_19/molecule_19.png
+  含pKa標記: molecule_19/molecule_19_with_pka.png
+  詳細資訊: molecule_19/info.txt
+
+--------------------------------------------------
+分子 20:
+SMILES: Oc1cnccc1C=O
+匹配的pKa值及對應官能基:
+  pKa = 6.73 => Phenol
+
+圖像檔案:
+  分子結構: molecule_20/molecule_20.png
+  含pKa標記: molecule_20/molecule_20_with_pka.png
+  詳細資訊: molecule_20/info.txt
+
+--------------------------------------------------
+分子 21:
+SMILES: Oc1cccnc1C=O
+匹配的pKa值及對應官能基:
+  pKa = 6.95 => Phenol
+
+圖像檔案:
+  分子結構: molecule_21/molecule_21.png
+  含pKa標記: molecule_21/molecule_21_with_pka.png
+  詳細資訊: molecule_21/info.txt
+
+--------------------------------------------------
+分子 22:
+SMILES: Oc1ccc(c(c1O)[N+]([O-])=O)[N+]([O-])=O
+匹配的pKa值及對應官能基:
+  pKa = 4.02 => Phenol
+
+圖像檔案:
+  分子結構: molecule_22/molecule_22.png
+  含pKa標記: molecule_22/molecule_22_with_pka.png
+  詳細資訊: molecule_22/info.txt
+
+--------------------------------------------------
+分子 23:
+SMILES: Oc1cc(cc(c1O)[N+]([O-])=O)[N+]([O-])=O
+匹配的pKa值及對應官能基:
+  pKa = 3.35 => Phenol
+
+圖像檔案:
+  分子結構: molecule_23/molecule_23.png
+  含pKa標記: molecule_23/molecule_23_with_pka.png
+  詳細資訊: molecule_23/info.txt
+
+--------------------------------------------------
+分子 24:
+SMILES: Oc1c(Br)cc(Br)c2cccnc12
+匹配的pKa值及對應官能基:
+  pKa = 2.60 => Phenol
+  pKa = 7.30 => Phenol (guess)
+
+圖像檔案:
+  分子結構: molecule_24/molecule_24.png
+  含pKa標記: molecule_24/molecule_24_with_pka.png
+  詳細資訊: molecule_24/info.txt
+
+--------------------------------------------------
+分子 25:
+SMILES: Oc1ccc(c2cccnc12)[N+]([O-])=O
+匹配的pKa值及對應官能基:
+  pKa = 2.51 => Phenol
+
+圖像檔案:
+  分子結構: molecule_25/molecule_25.png
+  含pKa標記: molecule_25/molecule_25_with_pka.png
+  詳細資訊: molecule_25/info.txt
+
+--------------------------------------------------
+分子 26:
+SMILES: Oc1c(I)cc(I)c2cccnc12
+匹配的pKa值及對應官能基:
+  pKa = 2.70 => Phenol
+
+圖像檔案:
+  分子結構: molecule_26/molecule_26.png
+  含pKa標記: molecule_26/molecule_26_with_pka.png
+  詳細資訊: molecule_26/info.txt
+
+--------------------------------------------------
+分子 27:
+SMILES: Oc1c(cc(c(O)c1[N+]([O-])=O)[N+]([O-])=O)[N+]([O-])=O
+匹配的pKa值及對應官能基:
+  pKa = 0.10 => Phenol
+  pKa = 4.23 => Phenol
+
+圖像檔案:
+  分子結構: molecule_27/molecule_27.png
+  含pKa標記: molecule_27/molecule_27_with_pka.png
+  詳細資訊: molecule_27/info.txt
+
+--------------------------------------------------
+分子 28:
+SMILES: OC[C@H]1O[C@H]([C@H](O)[C@@H]1O)n2cnc3c(O)ncnc23
+匹配的pKa值及對應官能基:
+  pKa = 1.10 => Phenol
+
+圖像檔案:
+  分子結構: molecule_28/molecule_28.png
+  含pKa標記: molecule_28/molecule_28_with_pka.png
+  詳細資訊: molecule_28/info.txt
+
+--------------------------------------------------
+分子 29:
+SMILES: OC1=C(O)C(=O)C(=O)C(=O)C1=O
+匹配的pKa值及對應官能基:
+  pKa = 3.45 => Phenol
+  pKa = 3.58 => Phenol
+
+圖像檔案:
+  分子結構: molecule_29/molecule_29.png
+  含pKa標記: molecule_29/molecule_29_with_pka.png
+  詳細資訊: molecule_29/info.txt
+
+--------------------------------------------------
+分子 30:
+SMILES: OCC1=CC(=O)C(=C(CN2CCCCC2)O1)O
+匹配的pKa值及對應官能基:
+  pKa = 6.42 => Phenol
+
+圖像檔案:
+  分子結構: molecule_30/molecule_30.png
+  含pKa標記: molecule_30/molecule_30_with_pka.png
+  詳細資訊: molecule_30/info.txt
+
+--------------------------------------------------
+分子 31:
+SMILES: OCC1=CC(=O)C(=C(CN2CCOCC2)O1)O
+匹配的pKa值及對應官能基:
+  pKa = 5.14 => Phenol
+
+圖像檔案:
+  分子結構: molecule_31/molecule_31.png
+  含pKa標記: molecule_31/molecule_31_with_pka.png
+  詳細資訊: molecule_31/info.txt
+
+--------------------------------------------------
+分子 32:
+SMILES: OC1=C(O)C(=O)C(=O)C1=O
+匹配的pKa值及對應官能基:
+  pKa = 0.57 => Phenol
+  pKa = 1.85 => Phenol
+
+圖像檔案:
+  分子結構: molecule_32/molecule_32.png
+  含pKa標記: molecule_32/molecule_32_with_pka.png
+  詳細資訊: molecule_32/info.txt
+
+--------------------------------------------------
+分子 33:
+SMILES: OC1=C(O)C(=O)C1=O
+匹配的pKa值及對應官能基:
+  pKa = 0.65 => Phenol
+  pKa = 3.06 => Phenol
+
+圖像檔案:
+  分子結構: molecule_33/molecule_33.png
+  含pKa標記: molecule_33/molecule_33_with_pka.png
+  詳細資訊: molecule_33/info.txt
+
+--------------------------------------------------
+分子 34:
+SMILES: N[C@@H](Cc1ccc(O)cc1)C(=O)NO
+匹配的pKa值及對應官能基:
+  pKa = 6.96 => Phenol
+
+圖像檔案:
+  分子結構: molecule_34/molecule_34.png
+  含pKa標記: molecule_34/molecule_34_with_pka.png
+  詳細資訊: molecule_34/info.txt
+
+--------------------------------------------------
+分子 35:
+SMILES: Oc1ccccc1CC2C(=O)NCCNCCCNCCNC2=O
+匹配的pKa值及對應官能基:
+  pKa = 5.72 => Phenol
+
+圖像檔案:
+  分子結構: molecule_35/molecule_35.png
+  含pKa標記: molecule_35/molecule_35_with_pka.png
+  詳細資訊: molecule_35/info.txt
+

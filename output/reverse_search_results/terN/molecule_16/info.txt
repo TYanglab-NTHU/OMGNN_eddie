@@ -1,0 +1,12 @@
+SMILES: OC(=O)CN(CC(O)=O)c1cccc(O)c1
+搜尋條件:
+  官能基類型: TertiaryAmine
+  pKa最小值: 10.0
+
+匹配的pKa值:
+  pKa = 11.00 => TertiaryAmine
+results: 
+  smiles: OC(=O)CN(CC(O)=O)c1cccc(O)c1
+  pka_values: [2.54, 4.93, 11.0]
+  functional_groups: [{'type': 'COOH', 'indices': [0]}, {'type': 'COOH', 'indices': [7]}, {'type': 'Phenol', 'indices': [14]}, {'type': 'TertiaryAmine', 'indices': [4]}]
+  mapping: {2.54: {'type': 'COOH', 'indices': [0]}, 4.93: {'type': 'COOH', 'indices': [7]}, 11.0: {'type': 'TertiaryAmine', 'indices': [4]}}

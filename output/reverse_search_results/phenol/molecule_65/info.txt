@@ -1,0 +1,13 @@
+SMILES: CCN1C=CC(=O)C(=C1C)O
+搜尋條件:
+  官能基類型: Phenol
+  pKa最小值: 0.0
+  pKa最大值: 8.0
+
+匹配的pKa值:
+  pKa = 3.64 => Phenol
+results: 
+  smiles: CCN1C=CC(=O)C(=C1C)O
+  pka_values: [3.64, 9.81]
+  functional_groups: [{'type': 'Phenol', 'indices': [10]}, {'type': 'Pyridine', 'indices': [2]}]
+  mapping: {3.64: {'type': 'Phenol', 'indices': [10]}, 9.81: {'type': 'Pyridine', 'indices': [2]}}

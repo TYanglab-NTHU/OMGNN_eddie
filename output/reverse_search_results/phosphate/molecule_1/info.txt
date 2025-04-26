@@ -1,0 +1,12 @@
+SMILES: CCOC[P](O)(O)=O
+搜尋條件:
+  官能基類型: Phosphate
+  pKa最小值: 7.0
+
+匹配的pKa值:
+  pKa = 7.02 => Phosphate (guess)
+results: 
+  smiles: CCOC[P](O)(O)=O
+  pka_values: [7.02]
+  functional_groups: [{'type': 'Phosphate', 'indices': [5]}, {'type': 'Phosphate', 'indices': [6]}]
+  mapping: {7.02: {'type': 'Phosphate (guess)', 'indices': [5]}}

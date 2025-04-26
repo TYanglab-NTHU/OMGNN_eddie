@@ -1,0 +1,13 @@
+SMILES: FC1(F)CNCCNC(=O)C(F)(F)C(=O)NCCNC1
+搜尋條件:
+  官能基類型: SecondaryAmine
+  pKa最小值: 0.0
+  pKa最大值: 3.0
+
+匹配的pKa值:
+  pKa = 1.90 => SecondaryAmine (guess)
+results: 
+  smiles: FC1(F)CNCCNC(=O)C(F)(F)C(=O)NCCNC1
+  pka_values: [1.9, 6.1]
+  functional_groups: [{'type': 'SecondaryAmine', 'indices': [4]}, {'type': 'SecondaryAmine', 'indices': [18]}]
+  mapping: {1.9: {'type': 'SecondaryAmine (guess)', 'indices': [4]}, 6.1: {'type': 'SecondaryAmine', 'indices': [18]}}

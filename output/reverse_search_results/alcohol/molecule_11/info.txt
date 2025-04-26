@@ -1,0 +1,11 @@
+SMILES: OC(O)=C1OC(=CC(=O)C1=O)C(O)=O
+搜尋條件:
+  官能基類型: Alcohol
+
+匹配的pKa值:
+  pKa = 9.82 => Alcohol
+results: 
+  smiles: OC(O)=C1OC(=CC(=O)C1=O)C(O)=O
+  pka_values: [9.82]
+  functional_groups: [{'type': 'COOH', 'indices': [12]}, {'type': 'Alcohol', 'indices': [0]}, {'type': 'Alcohol', 'indices': [2]}]
+  mapping: {9.82: {'type': 'Alcohol', 'indices': [0]}}

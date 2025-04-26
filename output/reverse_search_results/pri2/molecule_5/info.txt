@@ -1,0 +1,12 @@
+SMILES: NCC(O)c1ccc(O)c(O)c1
+搜尋條件:
+  官能基類型: PrimaryAmine
+  pKa最小值: 12.0
+
+匹配的pKa值:
+  pKa = 12.90 => PrimaryAmine
+results: 
+  smiles: NCC(O)c1ccc(O)c(O)c1
+  pka_values: [8.64, 9.65, 12.9]
+  functional_groups: [{'type': 'Phenol', 'indices': [8]}, {'type': 'Phenol', 'indices': [10]}, {'type': 'PrimaryAmine', 'indices': [0]}]
+  mapping: {8.64: {'type': 'Phenol', 'indices': [8]}, 9.65: {'type': 'Phenol', 'indices': [10]}, 12.9: {'type': 'PrimaryAmine', 'indices': [0]}}

@@ -1,2 +1,10 @@
-version,test_size,num_features,bond_features,hidden_dim,batch_size,num_epochs,lr,dropout,anneal_rate,save_path,model_path
-pka_gnn_v5_2_dissociation_order,0.2,50,12,128,32,10,0.001,0.2,0.9,../results/,../models/
+version,input,reaction,type,test_size,num_features,output_size,dropout,batch_size,num_epochs,unique_name,model_path,save_path,mode,anneal_rate,lr,pretrain,split_redox
+pka_ver1,../output/pka_mapping_results.csv,,multiple,0.2,153,1, 0.3, 1,1,reg_auto_cla_each_num,../results/pka_ver1/,../results/pka_ver1/,single, 0.9, 0.001,True,False
+pka_ver2,../output/pka_mapping_results.csv,,multiple,0.2,153,1, 0.3, 1,500,reg_auto_cla_each_num,../results/pka_ver2/,../results/pka_ver2/,single, 0.9, 0.001,True,False
+pka_ver3,../output/pka_mapping_results.csv,,multiple,0.2,153,1, 0.3, 1,60,reg_auto_cla_each_num,../results/pka_ver3/,../results/pka_ver3/,single, 0.9, 0.001,True,False
+pka_ver4,../output/pka_mapping_results.csv,,multiple,0.2,153,1, 0.3, 1,40,reg_auto_cla_each_num,../results/pka_ver4/,../results/pka_ver4/,single, 0.9, 0.001,True,False
+pka_ver5,../output/pka_mapping_results.csv,,multiple,0.2,153,1, 0.3, 1,40,reg_auto_cla_each_num,../results/pka_ver5/,../results/pka_ver5/,single, 0.9, 0.001,True,False
+pka_ver6,../output/pka_mapping_results.csv,,multiple,0.2,153,1, 0.3, 1,15,reg_auto_cla_each_num,../results/pka_ver6/,../results/pka_ver6/,single, 0.9, 0.0001,True,False
+pka_ver7,../output/pka_mapping_results.csv,,multiple,0.2,153,1, 0.3, 1,5,reg_auto_cla_each_num,../results/pka_ver7/,../results/pka_ver7/,single, 0.9, 0.0001,True,False
+pka_ver8,../output/pka_mapping_results.csv,,multiple,0.2,153,1, 0.3, 1,50,reg_auto_cla_each_num,../results/pka_ver8/,../results/pka_ver8/,single, 0.9, 0.0001,True,False
+pka_ver9,../output/pka_mapping_results.csv,,multiple,0.2,153,1, 0.3, 1,50,reg_auto_cla_each_num,../results/pka_ver9/,../results/pka_ver9/,single, 0.9, 0.0001,True,False

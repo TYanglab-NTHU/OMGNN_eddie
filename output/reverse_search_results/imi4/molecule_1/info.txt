@@ -1,0 +1,13 @@
+SMILES: CNCCc1c[nH]cn1
+搜尋條件:
+  官能基類型: Imidazole
+  pKa最小值: 9.0
+  pKa最大值: 13.0
+
+匹配的pKa值:
+  pKa = 9.90 => Imidazole (guess)
+results: 
+  smiles: CNCCc1c[nH]cn1
+  pka_values: [5.87, 9.9]
+  functional_groups: [{'type': 'Imidazole', 'indices': [8]}, {'type': 'SecondaryAmine', 'indices': [1]}]
+  mapping: {5.87: {'type': 'SecondaryAmine', 'indices': [1]}, 9.9: {'type': 'Imidazole (guess)', 'indices': [8]}}

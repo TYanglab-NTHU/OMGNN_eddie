@@ -1,0 +1,277 @@
+==================================================
+pKa 反向搜尋結果摘要
+==================================================
+
+搜尋條件:
+  官能基類型: TertiaryAmine
+  pKa最小值: 10.0
+
+找到 24 個符合條件的分子
+
+--------------------------------------------------
+分子 1:
+SMILES: C1CN2CCC1CC2
+匹配的pKa值及對應官能基:
+  pKa = 11.15 => TertiaryAmine
+
+圖像檔案:
+  分子結構: molecule_1/molecule_1.png
+  含pKa標記: molecule_1/molecule_1_with_pka.png
+  詳細資訊: molecule_1/info.txt
+
+--------------------------------------------------
+分子 2:
+SMILES: CCN1CCCCC1
+匹配的pKa值及對應官能基:
+  pKa = 10.61 => TertiaryAmine
+
+圖像檔案:
+  分子結構: molecule_2/molecule_2.png
+  含pKa標記: molecule_2/molecule_2_with_pka.png
+  詳細資訊: molecule_2/info.txt
+
+--------------------------------------------------
+分子 3:
+SMILES: CN1CCCC1
+匹配的pKa值及對應官能基:
+  pKa = 10.46 => TertiaryAmine
+
+圖像檔案:
+  分子結構: molecule_3/molecule_3.png
+  含pKa標記: molecule_3/molecule_3_with_pka.png
+  詳細資訊: molecule_3/info.txt
+
+--------------------------------------------------
+分子 4:
+SMILES: CN1CCCCC1
+匹配的pKa值及對應官能基:
+  pKa = 10.09 => TertiaryAmine
+
+圖像檔案:
+  分子結構: molecule_4/molecule_4.png
+  含pKa標記: molecule_4/molecule_4_with_pka.png
+  詳細資訊: molecule_4/info.txt
+
+--------------------------------------------------
+分子 5:
+SMILES: COCCCN(CC(O)=O)CC(O)=O
+匹配的pKa值及對應官能基:
+  pKa = 10.02 => TertiaryAmine
+
+圖像檔案:
+  分子結構: molecule_5/molecule_5.png
+  含pKa標記: molecule_5/molecule_5_with_pka.png
+  詳細資訊: molecule_5/info.txt
+
+--------------------------------------------------
+分子 6:
+SMILES: CN1CCC(S)CC1
+匹配的pKa值及對應官能基:
+  pKa = 10.35 => TertiaryAmine
+
+圖像檔案:
+  分子結構: molecule_6/molecule_6.png
+  含pKa標記: molecule_6/molecule_6_with_pka.png
+  詳細資訊: molecule_6/info.txt
+
+--------------------------------------------------
+分子 7:
+SMILES: CN1CCN2CCNCCN(CC1)CCN(C)CC2
+匹配的pKa值及對應官能基:
+  pKa = 12.50 => TertiaryAmine
+
+圖像檔案:
+  分子結構: molecule_7/molecule_7.png
+  含pKa標記: molecule_7/molecule_7_with_pka.png
+  詳細資訊: molecule_7/info.txt
+
+--------------------------------------------------
+分子 8:
+SMILES: CN1CCN(C)CCN(C)CC(C)(C)CN(C)CC1
+匹配的pKa值及對應官能基:
+  pKa = 11.40 => TertiaryAmine
+
+圖像檔案:
+  分子結構: molecule_8/molecule_8.png
+  含pKa標記: molecule_8/molecule_8_with_pka.png
+  詳細資訊: molecule_8/info.txt
+
+--------------------------------------------------
+分子 9:
+SMILES: CN1CCN(C)CCN(C)CCN(C)CC1
+匹配的pKa值及對應官能基:
+  pKa = 10.07 => TertiaryAmine
+
+圖像檔案:
+  分子結構: molecule_9/molecule_9.png
+  含pKa標記: molecule_9/molecule_9_with_pka.png
+  詳細資訊: molecule_9/info.txt
+
+--------------------------------------------------
+分子 10:
+SMILES: CN1CCN2CCCSCCCN(CC1)CCN(C)CC2
+匹配的pKa值及對應官能基:
+  pKa = 11.91 => TertiaryAmine
+
+圖像檔案:
+  分子結構: molecule_10/molecule_10.png
+  含pKa標記: molecule_10/molecule_10_with_pka.png
+  詳細資訊: molecule_10/info.txt
+
+--------------------------------------------------
+分子 11:
+SMILES: CN1CCN2CCN(C)CCN(CC1)CCN(C)CC2
+匹配的pKa值及對應官能基:
+  pKa = 10.00 => TertiaryAmine
+  pKa = 11.80 => TertiaryAmine
+
+圖像檔案:
+  分子結構: molecule_11/molecule_11.png
+  含pKa標記: molecule_11/molecule_11_with_pka.png
+  詳細資訊: molecule_11/info.txt
+
+--------------------------------------------------
+分子 12:
+SMILES: CN1CCCN2CCN(C)CCN(CCC1)CCN(C)CC2
+匹配的pKa值及對應官能基:
+  pKa = 11.83 => TertiaryAmine
+
+圖像檔案:
+  分子結構: molecule_12/molecule_12.png
+  含pKa標記: molecule_12/molecule_12_with_pka.png
+  詳細資訊: molecule_12/info.txt
+
+--------------------------------------------------
+分子 13:
+SMILES: OC(=O)CN(CCS)CC(O)=O
+匹配的pKa值及對應官能基:
+  pKa = 10.79 => TertiaryAmine
+
+圖像檔案:
+  分子結構: molecule_13/molecule_13.png
+  含pKa標記: molecule_13/molecule_13_with_pka.png
+  詳細資訊: molecule_13/info.txt
+
+--------------------------------------------------
+分子 14:
+SMILES: OC(=O)CN(CC(O)=O)c1ccccc1O
+匹配的pKa值及對應官能基:
+  pKa = 11.08 => TertiaryAmine
+
+圖像檔案:
+  分子結構: molecule_14/molecule_14.png
+  含pKa標記: molecule_14/molecule_14_with_pka.png
+  詳細資訊: molecule_14/info.txt
+
+--------------------------------------------------
+分子 15:
+SMILES: OC(=O)CN(CC(O)=O)c1ccc(O)cc1
+匹配的pKa值及對應官能基:
+  pKa = 10.92 => TertiaryAmine
+
+圖像檔案:
+  分子結構: molecule_15/molecule_15.png
+  含pKa標記: molecule_15/molecule_15_with_pka.png
+  詳細資訊: molecule_15/info.txt
+
+--------------------------------------------------
+分子 16:
+SMILES: OC(=O)CN(CC(O)=O)c1cccc(O)c1
+匹配的pKa值及對應官能基:
+  pKa = 11.00 => TertiaryAmine
+
+圖像檔案:
+  分子結構: molecule_16/molecule_16.png
+  含pKa標記: molecule_16/molecule_16_with_pka.png
+  詳細資訊: molecule_16/info.txt
+
+--------------------------------------------------
+分子 17:
+SMILES: NCCN1CCCNCC1
+匹配的pKa值及對應官能基:
+  pKa = 10.09 => TertiaryAmine
+
+圖像檔案:
+  分子結構: molecule_17/molecule_17.png
+  含pKa標記: molecule_17/molecule_17_with_pka.png
+  詳細資訊: molecule_17/info.txt
+
+--------------------------------------------------
+分子 18:
+SMILES: CN1CCCNCCNCCCNCC1
+匹配的pKa值及對應官能基:
+  pKa = 11.25 => TertiaryAmine
+
+圖像檔案:
+  分子結構: molecule_18/molecule_18.png
+  含pKa標記: molecule_18/molecule_18_with_pka.png
+  詳細資訊: molecule_18/info.txt
+
+--------------------------------------------------
+分子 19:
+SMILES: CC(CN(CC(O)=O)CC(O)=O)N(CC(O)=O)CC(O)=O
+匹配的pKa值及對應官能基:
+  pKa = 11.01 => TertiaryAmine
+
+圖像檔案:
+  分子結構: molecule_19/molecule_19.png
+  含pKa標記: molecule_19/molecule_19_with_pka.png
+  詳細資訊: molecule_19/info.txt
+
+--------------------------------------------------
+分子 20:
+SMILES: NCCCN1CCCN(CCCN)CC1
+匹配的pKa值及對應官能基:
+  pKa = 10.05 => TertiaryAmine
+
+圖像檔案:
+  分子結構: molecule_20/molecule_20.png
+  含pKa標記: molecule_20/molecule_20_with_pka.png
+  詳細資訊: molecule_20/info.txt
+
+--------------------------------------------------
+分子 21:
+SMILES: CN1CCCN(C)CCNCCCNCC1
+匹配的pKa值及對應官能基:
+  pKa = 10.75 => TertiaryAmine
+
+圖像檔案:
+  分子結構: molecule_21/molecule_21.png
+  含pKa標記: molecule_21/molecule_21_with_pka.png
+  詳細資訊: molecule_21/info.txt
+
+--------------------------------------------------
+分子 22:
+SMILES: NCCCN1CCCNCCCNCCC1
+匹配的pKa值及對應官能基:
+  pKa = 12.00 => TertiaryAmine
+
+圖像檔案:
+  分子結構: molecule_22/molecule_22.png
+  含pKa標記: molecule_22/molecule_22_with_pka.png
+  詳細資訊: molecule_22/info.txt
+
+--------------------------------------------------
+分子 23:
+SMILES: SCCN1CCN(CCS)CCN(CCS)CC1
+匹配的pKa值及對應官能基:
+  pKa = 10.97 => TertiaryAmine
+  pKa = 13.40 => TertiaryAmine
+
+圖像檔案:
+  分子結構: molecule_23/molecule_23.png
+  含pKa標記: molecule_23/molecule_23_with_pka.png
+  詳細資訊: molecule_23/info.txt
+
+--------------------------------------------------
+分子 24:
+SMILES: Cc1ccc(O)c(CN2CCN(CCN(CC2)Cc3nc(C)ccc3O)Cc4nc(C)ccc4O)n1
+匹配的pKa值及對應官能基:
+  pKa = 10.86 => TertiaryAmine
+  pKa = 12.10 => TertiaryAmine
+
+圖像檔案:
+  分子結構: molecule_24/molecule_24.png
+  含pKa標記: molecule_24/molecule_24_with_pka.png
+  詳細資訊: molecule_24/info.txt
+

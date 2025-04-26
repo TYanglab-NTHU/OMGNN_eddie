@@ -1,0 +1,10 @@
+SMILES: OC(=O)C1=CC(=O)NC(=O)N1
+搜尋條件:
+  官能基類型: COOH
+  pKa最小值: 9.0
+  pKa最大值: 13.0
+
+匹配的pKa值:
+  pKa = 9.34 => COOH (guess)
+results: 
+{'smiles': 'OC(=O)C1=CC(=O)NC(=O)N1', 'pka_values': [1.87, 9.34], 'functional_groups': [{'type': 'COOH', 'indices': [1, 2, 0]}], 'mapping': {1.87: {'type': 'COOH', 'indices': [1, 2, 0]}, 9.34: {'type': 'COOH (guess)', 'indices': [1, 2, 0]}}}

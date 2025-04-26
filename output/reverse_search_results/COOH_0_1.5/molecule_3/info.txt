@@ -1,0 +1,13 @@
+SMILES: Nc1c(ccc2ccccc12)C(O)=O
+搜尋條件:
+  官能基類型: COOH
+  pKa最小值: 0.0
+  pKa最大值: 1.5
+
+匹配的pKa值:
+  pKa = 1.00 => COOH
+results: 
+  smiles: Nc1c(ccc2ccccc12)C(O)=O
+  pka_values: [1.0, 4.96]
+  functional_groups: [{'type': 'COOH', 'indices': [12]}, {'type': 'PrimaryAmine', 'indices': [0]}]
+  mapping: {1.0: {'type': 'COOH', 'indices': [12]}, 4.96: {'type': 'PrimaryAmine (guess)', 'indices': [0]}}

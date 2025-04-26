@@ -1,0 +1,12 @@
+SMILES: Nc1ccc(C(N)=O)c(O)c1
+搜尋條件:
+  官能基類型: Aniline
+  pKa最小值: 7.0
+
+匹配的pKa值:
+  pKa = 9.11 => Aniline (guess)
+results: 
+  smiles: Nc1ccc(C(N)=O)c(O)c1
+  pka_values: [3.0, 9.11]
+  functional_groups: [{'type': 'Phenol', 'indices': [9]}, {'type': 'Aniline', 'indices': [0]}]
+  mapping: {3.0: {'type': 'Phenol', 'indices': [9]}, 9.11: {'type': 'Aniline (guess)', 'indices': [0]}}

@@ -1,0 +1,13 @@
+SMILES: OCC1=CC(=O)C(=C(CN2CCOCC2)O1)O
+搜尋條件:
+  官能基類型: Phenol
+  pKa最小值: 0.0
+  pKa最大值: 7.5
+
+匹配的pKa值:
+  pKa = 5.14 => Phenol
+results: 
+  smiles: OCC1=CC(=O)C(=C(CN2CCOCC2)O1)O
+  pka_values: [5.14, 7.88]
+  functional_groups: [{'type': 'Phenol', 'indices': [16]}, {'type': 'TertiaryAmine', 'indices': [9]}]
+  mapping: {5.14: {'type': 'Phenol', 'indices': [16]}, 7.88: {'type': 'TertiaryAmine', 'indices': [9]}}

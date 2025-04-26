@@ -1,0 +1,12 @@
+SMILES: OC[C@H]1O[C@H]([C@H](O)[C@@H]1O)n2cnc3C(=O)NC(=O)Nc23
+搜尋條件:
+  官能基類型: Alcohol
+
+匹配的pKa值:
+  pKa = 1.19 => Alcohol (guess)
+  pKa = 5.57 => Alcohol (guess)
+results: 
+  smiles: OC[C@H]1O[C@H]([C@H](O)[C@@H]1O)n2cnc3C(=O)NC(=O)Nc23
+  pka_values: [1.19, 5.57]
+  functional_groups: [{'type': 'Alcohol', 'indices': [0]}, {'type': 'Alcohol', 'indices': [6]}, {'type': 'Alcohol', 'indices': [8]}]
+  mapping: {1.19: {'type': 'Alcohol (guess)', 'indices': [0]}, 5.57: {'type': 'Alcohol (guess)', 'indices': [6]}}

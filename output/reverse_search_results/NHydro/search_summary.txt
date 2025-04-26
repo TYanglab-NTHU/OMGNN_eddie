@@ -1,0 +1,33 @@
+==================================================
+pKa 反向搜尋結果摘要
+==================================================
+
+搜尋條件:
+  官能基類型: NHydroxylamine
+  pKa最小值: 2.5
+  pKa最大值: 5.0
+
+找到 2 個符合條件的分子
+
+--------------------------------------------------
+分子 1:
+SMILES: ONC(=O)c1cccnc1
+匹配的pKa值及對應官能基:
+  pKa = 3.19 => NHydroxylamine (guess)
+
+圖像檔案:
+  分子結構: molecule_1/molecule_1.png
+  含pKa標記: molecule_1/molecule_1_with_pka.png
+  詳細資訊: molecule_1/info.txt
+
+--------------------------------------------------
+分子 2:
+SMILES: Nc1ccccc1C(=O)NO
+匹配的pKa值及對應官能基:
+  pKa = 2.68 => NHydroxylamine (guess)
+
+圖像檔案:
+  分子結構: molecule_2/molecule_2.png
+  含pKa標記: molecule_2/molecule_2_with_pka.png
+  詳細資訊: molecule_2/info.txt
+

@@ -1,0 +1,13 @@
+SMILES: Oc1cccnc1
+搜尋條件:
+  官能基類型: Phenol
+  pKa最小值: 0.0
+  pKa最大值: 8.0
+
+匹配的pKa值:
+  pKa = 4.95 => Phenol
+results: 
+  smiles: Oc1cccnc1
+  pka_values: [4.95, 8.62]
+  functional_groups: [{'type': 'Phenol', 'indices': [0]}, {'type': 'Pyridine', 'indices': [5]}]
+  mapping: {4.95: {'type': 'Phenol', 'indices': [0]}, 8.62: {'type': 'Pyridine', 'indices': [5]}}

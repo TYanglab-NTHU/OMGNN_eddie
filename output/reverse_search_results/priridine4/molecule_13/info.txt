@@ -1,0 +1,12 @@
+SMILES: OC(=O)c1cc(O)c2ccccc2n1
+搜尋條件:
+  官能基類型: Pyridine
+  pKa最小值: 7.0
+
+匹配的pKa值:
+  pKa = 11.00 => Pyridine
+results: 
+  smiles: OC(=O)c1cc(O)c2ccccc2n1
+  pka_values: [2.65, 11.0]
+  functional_groups: [{'type': 'COOH', 'indices': [0]}, {'type': 'Phenol', 'indices': [6]}, {'type': 'Pyridine', 'indices': [13]}]
+  mapping: {2.65: {'type': 'COOH', 'indices': [0]}, 11.0: {'type': 'Pyridine', 'indices': [13]}}

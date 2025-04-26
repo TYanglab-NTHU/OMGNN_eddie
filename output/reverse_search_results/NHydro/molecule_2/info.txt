@@ -1,0 +1,13 @@
+SMILES: Nc1ccccc1C(=O)NO
+搜尋條件:
+  官能基類型: NHydroxylamine
+  pKa最小值: 2.5
+  pKa最大值: 5.0
+
+匹配的pKa值:
+  pKa = 2.68 => NHydroxylamine (guess)
+results: 
+  smiles: Nc1ccccc1C(=O)NO
+  pka_values: [2.68, 8.82]
+  functional_groups: [{'type': 'NHydroxylamine', 'indices': [10]}, {'type': 'PrimaryAmine', 'indices': [0]}]
+  mapping: {2.68: {'type': 'NHydroxylamine (guess)', 'indices': [10]}, 8.82: {'type': 'PrimaryAmine', 'indices': [0]}}

@@ -1,0 +1,13 @@
+SMILES: NNC(=S)NN
+搜尋條件:
+  官能基類型: SecondaryAmine
+  pKa最小值: 0.0
+  pKa最大值: 3.0
+
+匹配的pKa值:
+  pKa = 0.85 => SecondaryAmine (guess)
+results: 
+  smiles: NNC(=S)NN
+  pka_values: [0.85, 3.22]
+  functional_groups: [{'type': 'SecondaryAmine', 'indices': [1]}, {'type': 'SecondaryAmine', 'indices': [4]}, {'type': 'PrimaryAmine', 'indices': [0]}, {'type': 'PrimaryAmine', 'indices': [5]}]
+  mapping: {0.85: {'type': 'SecondaryAmine (guess)', 'indices': [1]}, 3.22: {'type': 'PrimaryAmine', 'indices': [0]}}

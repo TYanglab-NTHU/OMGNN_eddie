@@ -1,0 +1,11 @@
+SMILES: Cc1ccccc1S
+搜尋條件:
+  官能基類型: Thiol
+
+匹配的pKa值:
+  pKa = 7.00 => Thiol (guess)
+results: 
+  smiles: Cc1ccccc1S
+  pka_values: [7.0]
+  functional_groups: [{'type': 'Thiol', 'indices': [7]}]
+  mapping: {7.0: {'type': 'Thiol (guess)', 'indices': [7]}}

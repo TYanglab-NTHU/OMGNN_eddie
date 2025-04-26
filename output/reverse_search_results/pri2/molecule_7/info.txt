@@ -1,0 +1,12 @@
+SMILES: N[C@@H](CCCNC(N)=N)C(=O)NO
+搜尋條件:
+  官能基類型: PrimaryAmine
+  pKa最小值: 12.0
+
+匹配的pKa值:
+  pKa = 13.23 => PrimaryAmine
+results: 
+  smiles: N[C@@H](CCCNC(N)=N)C(=O)NO
+  pka_values: [6.88, 8.84, 13.23]
+  functional_groups: [{'type': 'NHydroxylamine', 'indices': [12]}, {'type': 'SecondaryAmine', 'indices': [5]}, {'type': 'SecondaryAmine', 'indices': [8]}, {'type': 'PrimaryAmine', 'indices': [0]}, {'type': 'PrimaryAmine', 'indices': [7]}]
+  mapping: {6.88: {'type': 'NHydroxylamine (guess)', 'indices': [12]}, 8.84: {'type': 'PrimaryAmine', 'indices': [0]}, 13.23: {'type': 'PrimaryAmine', 'indices': [7]}}

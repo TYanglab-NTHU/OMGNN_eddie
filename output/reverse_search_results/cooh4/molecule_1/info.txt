@@ -1,0 +1,12 @@
+SMILES: OC(=O)C1=CC(=O)C=C(N1)C(O)=O
+搜尋條件:
+  官能基類型: COOH
+  pKa最小值: 8.0
+
+匹配的pKa值:
+  pKa = 10.88 => COOH (guess)
+results: 
+  smiles: OC(=O)C1=CC(=O)C=C(N1)C(O)=O
+  pka_values: [1.4, 3.11, 10.88]
+  functional_groups: [{'type': 'COOH', 'indices': [0]}, {'type': 'COOH', 'indices': [11]}, {'type': 'Pyridine', 'indices': [9]}]
+  mapping: {1.4: {'type': 'COOH', 'indices': [0]}, 3.11: {'type': 'Pyridine', 'indices': [9]}, 10.88: {'type': 'COOH (guess)', 'indices': [11]}}

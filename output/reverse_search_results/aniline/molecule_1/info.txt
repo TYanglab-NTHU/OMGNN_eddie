@@ -1,0 +1,12 @@
+SMILES: NC1=Nc2nc[nH]c2C(=O)N1
+搜尋條件:
+  官能基類型: Aniline
+  pKa最小值: 7.0
+
+匹配的pKa值:
+  pKa = 9.42 => Aniline (guess)
+results: 
+  smiles: NC1=Nc2nc[nH]c2C(=O)N1
+  pka_values: [9.42]
+  functional_groups: [{'type': 'Imidazole', 'indices': [4]}, {'type': 'Aniline', 'indices': [0]}]
+  mapping: {9.42: {'type': 'Aniline (guess)', 'indices': [0]}}

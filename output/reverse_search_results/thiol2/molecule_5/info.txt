@@ -1,0 +1,12 @@
+SMILES: Cn1ccnc1S
+搜尋條件:
+  官能基類型: Thiol
+  pKa最小值: 10.0
+
+匹配的pKa值:
+  pKa = 11.58 => Thiol (guess)
+results: 
+  smiles: Cn1ccnc1S
+  pka_values: [11.58]
+  functional_groups: [{'type': 'Thiol', 'indices': [6]}]
+  mapping: {11.58: {'type': 'Thiol (guess)', 'indices': [6]}}

@@ -1,0 +1,13 @@
+SMILES: CC1CNCCNCCCNCCNC1
+搜尋條件:
+  官能基類型: SecondaryAmine
+  pKa最小值: 0.0
+  pKa最大值: 3.0
+
+匹配的pKa值:
+  pKa = 2.00 => SecondaryAmine
+results: 
+  smiles: CC1CNCCNCCCNCCNC1
+  pka_values: [2.0, 10.12, 11.08]
+  functional_groups: [{'type': 'SecondaryAmine', 'indices': [3]}, {'type': 'SecondaryAmine', 'indices': [6]}, {'type': 'SecondaryAmine', 'indices': [10]}, {'type': 'SecondaryAmine', 'indices': [13]}]
+  mapping: {2.0: {'type': 'SecondaryAmine', 'indices': [3]}, 10.12: {'type': 'SecondaryAmine', 'indices': [6]}, 11.08: {'type': 'SecondaryAmine', 'indices': [10]}}

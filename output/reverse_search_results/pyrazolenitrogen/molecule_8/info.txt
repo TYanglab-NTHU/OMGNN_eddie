@@ -1,0 +1,11 @@
+SMILES: C1CNCCCN(Cc2cc[nH]n2)NC1
+搜尋條件:
+  官能基類型: PyrazoleNitrogen
+
+匹配的pKa值:
+  pKa = 1.86 => PyrazoleNitrogen (guess)
+results: 
+  smiles: C1CNCCCN(Cc2cc[nH]n2)NC1
+  pka_values: [1.86, 6.73, 11.87]
+  functional_groups: [{'type': 'PyrazoleNitrogen', 'indices': [11]}, {'type': 'SecondaryAmine', 'indices': [2]}, {'type': 'SecondaryAmine', 'indices': [13]}, {'type': 'TertiaryAmine', 'indices': [6]}]
+  mapping: {1.86: {'type': 'PyrazoleNitrogen (guess)', 'indices': [11]}, 6.73: {'type': 'SecondaryAmine', 'indices': [2]}, 11.87: {'type': 'SecondaryAmine', 'indices': [13]}}

@@ -1,0 +1,13 @@
+SMILES: Cc1nsc(N)n1
+搜尋條件:
+  官能基類型: PrimaryAmine
+  pKa最小值: 0.0
+  pKa最大值: 3.0
+
+匹配的pKa值:
+  pKa = 2.50 => PrimaryAmine
+results: 
+  smiles: Cc1nsc(N)n1
+  pka_values: [2.5]
+  functional_groups: [{'type': 'PrimaryAmine', 'indices': [5]}]
+  mapping: {2.5: {'type': 'PrimaryAmine', 'indices': [5]}}

@@ -1,0 +1,11 @@
+SMILES: OC(=O)CN(CCS)CC(O)=O
+搜尋條件:
+  官能基類型: Thiol
+
+匹配的pKa值:
+  pKa = 8.17 => Thiol
+results: 
+  smiles: OC(=O)CN(CCS)CC(O)=O
+  pka_values: [2.14, 8.17, 10.79]
+  functional_groups: [{'type': 'COOH', 'indices': [0]}, {'type': 'COOH', 'indices': [10]}, {'type': 'Thiol', 'indices': [7]}, {'type': 'TertiaryAmine', 'indices': [4]}]
+  mapping: {2.14: {'type': 'COOH', 'indices': [0]}, 8.17: {'type': 'Thiol', 'indices': [7]}, 10.79: {'type': 'TertiaryAmine', 'indices': [4]}}

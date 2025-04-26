@@ -1,0 +1,13 @@
+SMILES: OC[C@H]1O[C@H]([C@H](O)[C@@H]1O)n2cnc3c(O)ncnc23
+搜尋條件:
+  官能基類型: Phenol
+  pKa最小值: 0.0
+  pKa最大值: 7.5
+
+匹配的pKa值:
+  pKa = 1.10 => Phenol
+results: 
+  smiles: OC[C@H]1O[C@H]([C@H](O)[C@@H]1O)n2cnc3c(O)ncnc23
+  pka_values: [1.1, 8.7]
+  functional_groups: [{'type': 'Phenol', 'indices': [14]}, {'type': 'ImidazoleLike', 'indices': [9]}, {'type': 'ImidazoleLike', 'indices': [11]}, {'type': 'AliphaticRingAlcohol', 'indices': [6]}, {'type': 'AliphaticRingAlcohol', 'indices': [8]}]
+  mapping: {1.1: {'type': 'Phenol', 'indices': [14]}, 8.7: {'type': 'ImidazoleLike', 'indices': [9]}}

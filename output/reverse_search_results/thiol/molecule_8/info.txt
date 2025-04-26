@@ -1,0 +1,13 @@
+SMILES: Sc1ccc(c2ccccc2)c3cccnc13
+搜尋條件:
+  官能基類型: Thiol
+  pKa最小值: 0.0
+  pKa最大值: 3.0
+
+匹配的pKa值:
+  pKa = 1.90 => Thiol
+results: 
+  smiles: Sc1ccc(c2ccccc2)c3cccnc13
+  pka_values: [1.9, 8.3]
+  functional_groups: [{'type': 'Thiol', 'indices': [0]}, {'type': 'Pyridine', 'indices': [15]}]
+  mapping: {1.9: {'type': 'Thiol', 'indices': [0]}, 8.3: {'type': 'Pyridine', 'indices': [15]}}

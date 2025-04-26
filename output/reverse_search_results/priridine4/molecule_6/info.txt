@@ -1,0 +1,12 @@
+SMILES: Sc1cccc2c(ccnc12)c3ccccc3
+搜尋條件:
+  官能基類型: Pyridine
+  pKa最小值: 7.0
+
+匹配的pKa值:
+  pKa = 8.38 => Pyridine
+results: 
+  smiles: Sc1cccc2c(ccnc12)c3ccccc3
+  pka_values: [2.0, 8.38]
+  functional_groups: [{'type': 'Thiol', 'indices': [0]}, {'type': 'Pyridine', 'indices': [9]}]
+  mapping: {2.0: {'type': 'Thiol', 'indices': [0]}, 8.38: {'type': 'Pyridine', 'indices': [9]}}

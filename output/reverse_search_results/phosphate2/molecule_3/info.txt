@@ -1,0 +1,13 @@
+SMILES: O[P](O)(=O)C(Br)Br
+搜尋條件:
+  官能基類型: Phosphate
+  pKa最小值: 3.0
+  pKa最大值: 6.0
+
+匹配的pKa值:
+  pKa = 5.40 => Phosphate
+results: 
+  smiles: O[P](O)(=O)C(Br)Br
+  pka_values: [0.8, 5.4]
+  functional_groups: [{'type': 'Phosphate', 'indices': [0]}, {'type': 'Phosphate', 'indices': [2]}]
+  mapping: {0.8: {'type': 'Phosphate', 'indices': [0]}, 5.4: {'type': 'Phosphate', 'indices': [2]}}

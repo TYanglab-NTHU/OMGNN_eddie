@@ -1,0 +1,13 @@
+SMILES: NC1=Nc2nc[nH]c2C(=O)N1
+搜尋條件:
+  官能基類型: Imidazole
+  pKa最小值: 9.0
+  pKa最大值: 13.0
+
+匹配的pKa值:
+  pKa = 9.42 => Imidazole
+results: 
+  smiles: NC1=Nc2nc[nH]c2C(=O)N1
+  pka_values: [9.42]
+  functional_groups: [{'type': 'Imidazole', 'indices': [4]}, {'type': 'PrimaryAmine', 'indices': [0]}]
+  mapping: {9.42: {'type': 'Imidazole', 'indices': [4]}}

@@ -1,0 +1,12 @@
+SMILES: NCCc1c[nH]c(S)n1
+搜尋條件:
+  官能基類型: Imidazole
+  pKa最小值: 8.0
+
+匹配的pKa值:
+  pKa = 11.62 => Imidazole
+results: 
+  smiles: NCCc1c[nH]c(S)n1
+  pka_values: [9.12, 11.62]
+  functional_groups: [{'type': 'Thiol', 'indices': [7]}, {'type': 'Imidazole', 'indices': [8]}, {'type': 'PrimaryAmine', 'indices': [0]}]
+  mapping: {9.12: {'type': 'Thiol', 'indices': [7]}, 11.62: {'type': 'Imidazole', 'indices': [8]}}

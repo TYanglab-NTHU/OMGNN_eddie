@@ -1,0 +1,11 @@
+SMILES: CCN(CC)C(S)=S
+搜尋條件:
+  官能基類型: Thiol
+
+匹配的pKa值:
+  pKa = 3.28 => Thiol
+results: 
+  smiles: CCN(CC)C(S)=S
+  pka_values: [3.28]
+  functional_groups: [{'type': 'Thiol', 'indices': [6]}, {'type': 'TertiaryAmine', 'indices': [2]}]
+  mapping: {3.28: {'type': 'Thiol', 'indices': [6]}}

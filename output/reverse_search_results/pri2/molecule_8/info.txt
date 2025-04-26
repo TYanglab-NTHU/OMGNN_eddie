@@ -1,0 +1,12 @@
+SMILES: N[C@@H](Cc1ccc(O)c(O)c1)C(O)=O
+搜尋條件:
+  官能基類型: PrimaryAmine
+  pKa最小值: 12.0
+
+匹配的pKa值:
+  pKa = 13.40 => PrimaryAmine
+results: 
+  smiles: N[C@@H](Cc1ccc(O)c(O)c1)C(O)=O
+  pka_values: [2.19, 8.75, 9.79, 13.4]
+  functional_groups: [{'type': 'COOH', 'indices': [12]}, {'type': 'Phenol', 'indices': [7]}, {'type': 'Phenol', 'indices': [9]}, {'type': 'PrimaryAmine', 'indices': [0]}]
+  mapping: {2.19: {'type': 'COOH', 'indices': [12]}, 8.75: {'type': 'Phenol', 'indices': [7]}, 9.79: {'type': 'Phenol', 'indices': [9]}, 13.4: {'type': 'PrimaryAmine', 'indices': [0]}}

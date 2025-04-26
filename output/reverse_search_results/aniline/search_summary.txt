@@ -1,0 +1,142 @@
+==================================================
+pKa 反向搜尋結果摘要
+==================================================
+
+搜尋條件:
+  官能基類型: Aniline
+  pKa最小值: 7.0
+
+找到 12 個符合條件的分子
+
+--------------------------------------------------
+分子 1:
+SMILES: NC1=Nc2nc[nH]c2C(=O)N1
+匹配的pKa值及對應官能基:
+  pKa = 9.42 => Aniline (guess)
+
+圖像檔案:
+  分子結構: molecule_1/molecule_1.png
+  含pKa標記: molecule_1/molecule_1_with_pka.png
+  詳細資訊: molecule_1/info.txt
+
+--------------------------------------------------
+分子 2:
+SMILES: NC1=C(NC(=O)NC1=O)C(O)=O
+匹配的pKa值及對應官能基:
+  pKa = 8.72 => Aniline (guess)
+
+圖像檔案:
+  分子結構: molecule_2/molecule_2.png
+  含pKa標記: molecule_2/molecule_2_with_pka.png
+  詳細資訊: molecule_2/info.txt
+
+--------------------------------------------------
+分子 3:
+SMILES: Nc1cc(ccc1O)[S](O)(=O)=O
+匹配的pKa值及對應官能基:
+  pKa = 9.15 => Aniline (guess)
+
+圖像檔案:
+  分子結構: molecule_3/molecule_3.png
+  含pKa標記: molecule_3/molecule_3_with_pka.png
+  詳細資訊: molecule_3/info.txt
+
+--------------------------------------------------
+分子 4:
+SMILES: Nc1cccc(O)c1
+匹配的pKa值及對應官能基:
+  pKa = 9.92 => Aniline (guess)
+
+圖像檔案:
+  分子結構: molecule_4/molecule_4.png
+  含pKa標記: molecule_4/molecule_4_with_pka.png
+  詳細資訊: molecule_4/info.txt
+
+--------------------------------------------------
+分子 5:
+SMILES: Nc1ccc(C(N)=O)c(O)c1
+匹配的pKa值及對應官能基:
+  pKa = 9.11 => Aniline (guess)
+
+圖像檔案:
+  分子結構: molecule_5/molecule_5.png
+  含pKa標記: molecule_5/molecule_5_with_pka.png
+  詳細資訊: molecule_5/info.txt
+
+--------------------------------------------------
+分子 6:
+SMILES: Nc1ccccc1O
+匹配的pKa值及對應官能基:
+  pKa = 9.84 => Aniline (guess)
+
+圖像檔案:
+  分子結構: molecule_6/molecule_6.png
+  含pKa標記: molecule_6/molecule_6_with_pka.png
+  詳細資訊: molecule_6/info.txt
+
+--------------------------------------------------
+分子 7:
+SMILES: Nc1nc(N)c2[nH]cnc2n1
+匹配的pKa值及對應官能基:
+  pKa = 10.32 => Aniline (guess)
+
+圖像檔案:
+  分子結構: molecule_7/molecule_7.png
+  含pKa標記: molecule_7/molecule_7_with_pka.png
+  詳細資訊: molecule_7/info.txt
+
+--------------------------------------------------
+分子 8:
+SMILES: Nc1nc(S)nc2nc[nH]c12
+匹配的pKa值及對應官能基:
+  pKa = 9.60 => Aniline (guess)
+
+圖像檔案:
+  分子結構: molecule_8/molecule_8.png
+  含pKa標記: molecule_8/molecule_8_with_pka.png
+  詳細資訊: molecule_8/info.txt
+
+--------------------------------------------------
+分子 9:
+SMILES: Nc1cccc(C(O)=O)c1O
+匹配的pKa值及對應官能基:
+  pKa = 12.04 => Aniline (guess)
+
+圖像檔案:
+  分子結構: molecule_9/molecule_9.png
+  含pKa標記: molecule_9/molecule_9_with_pka.png
+  詳細資訊: molecule_9/info.txt
+
+--------------------------------------------------
+分子 10:
+SMILES: Nc1nc(S)c2[nH]cnc2n1
+匹配的pKa值及對應官能基:
+  pKa = 9.80 => Aniline (guess)
+
+圖像檔案:
+  分子結構: molecule_10/molecule_10.png
+  含pKa標記: molecule_10/molecule_10_with_pka.png
+  詳細資訊: molecule_10/info.txt
+
+--------------------------------------------------
+分子 11:
+SMILES: Nc1ccc(C(O)=O)c(O)c1
+匹配的pKa值及對應官能基:
+  pKa = 13.70 => Aniline (guess)
+
+圖像檔案:
+  分子結構: molecule_11/molecule_11.png
+  含pKa標記: molecule_11/molecule_11_with_pka.png
+  詳細資訊: molecule_11/info.txt
+
+--------------------------------------------------
+分子 12:
+SMILES: N[C@@H](Cc1ccc(O)c(N)c1)C(O)=O
+匹配的pKa值及對應官能基:
+  pKa = 10.19 => Aniline (guess)
+
+圖像檔案:
+  分子結構: molecule_12/molecule_12.png
+  含pKa標記: molecule_12/molecule_12_with_pka.png
+  詳細資訊: molecule_12/info.txt
+

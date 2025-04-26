@@ -1,0 +1,13 @@
+SMILES: OC(=O)CNc1cccc2cccnc12
+搜尋條件:
+  官能基類型: SecondaryAmine
+  pKa最小值: 0.0
+  pKa最大值: 3.0
+
+匹配的pKa值:
+  pKa = 2.98 => SecondaryAmine
+results: 
+  smiles: OC(=O)CNc1cccc2cccnc12
+  pka_values: [1.9, 2.98, 4.26]
+  functional_groups: [{'type': 'COOH', 'indices': [0]}, {'type': 'Pyridine', 'indices': [13]}, {'type': 'SecondaryAmine', 'indices': [4]}]
+  mapping: {1.9: {'type': 'COOH', 'indices': [0]}, 2.98: {'type': 'SecondaryAmine', 'indices': [4]}, 4.26: {'type': 'Pyridine', 'indices': [13]}}

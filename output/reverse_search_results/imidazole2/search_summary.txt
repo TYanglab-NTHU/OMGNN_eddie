@@ -1,0 +1,65 @@
+==================================================
+pKa 反向搜尋結果摘要
+==================================================
+
+搜尋條件:
+  官能基類型: Imidazole
+  pKa最小值: 9.0
+
+找到 5 個符合條件的分子
+
+--------------------------------------------------
+分子 1:
+SMILES: Sc1[nH]ccn1
+匹配的pKa值及對應官能基:
+  pKa = 11.21 => Imidazole
+
+圖像檔案:
+  分子結構: molecule_1/molecule_1.png
+  含pKa標記: molecule_1/molecule_1_with_pka.png
+  詳細資訊: molecule_1/info.txt
+
+--------------------------------------------------
+分子 2:
+SMILES: NC1=Nc2nc[nH]c2C(=O)N1
+匹配的pKa值及對應官能基:
+  pKa = 9.42 => Imidazole
+
+圖像檔案:
+  分子結構: molecule_2/molecule_2.png
+  含pKa標記: molecule_2/molecule_2_with_pka.png
+  詳細資訊: molecule_2/info.txt
+
+--------------------------------------------------
+分子 3:
+SMILES: NCCc1c[nH]c(S)n1
+匹配的pKa值及對應官能基:
+  pKa = 11.62 => Imidazole
+
+圖像檔案:
+  分子結構: molecule_3/molecule_3.png
+  含pKa標記: molecule_3/molecule_3_with_pka.png
+  詳細資訊: molecule_3/info.txt
+
+--------------------------------------------------
+分子 4:
+SMILES: CNCCc1c[nH]cn1
+匹配的pKa值及對應官能基:
+  pKa = 9.90 => Imidazole
+
+圖像檔案:
+  分子結構: molecule_4/molecule_4.png
+  含pKa標記: molecule_4/molecule_4_with_pka.png
+  詳細資訊: molecule_4/info.txt
+
+--------------------------------------------------
+分子 5:
+SMILES: C(CNCc1c[nH]cn1)NCc2c[nH]cn2
+匹配的pKa值及對應官能基:
+  pKa = 9.05 => Imidazole
+
+圖像檔案:
+  分子結構: molecule_5/molecule_5.png
+  含pKa標記: molecule_5/molecule_5_with_pka.png
+  詳細資訊: molecule_5/info.txt
+

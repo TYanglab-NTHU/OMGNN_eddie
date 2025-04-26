@@ -1,0 +1,142 @@
+==================================================
+pKa 反向搜尋結果摘要
+==================================================
+
+搜尋條件:
+  官能基類型: Thiol
+  pKa最小值: 10.0
+
+找到 12 個符合條件的分子
+
+--------------------------------------------------
+分子 1:
+SMILES: CC(C)(C)S
+匹配的pKa值及對應官能基:
+  pKa = 11.22 => Thiol (guess)
+
+圖像檔案:
+  分子結構: molecule_1/molecule_1.png
+  含pKa標記: molecule_1/molecule_1_with_pka.png
+  詳細資訊: molecule_1/info.txt
+
+--------------------------------------------------
+分子 2:
+SMILES: Sc1[nH]ccn1
+匹配的pKa值及對應官能基:
+  pKa = 11.21 => Thiol (guess)
+
+圖像檔案:
+  分子結構: molecule_2/molecule_2.png
+  含pKa標記: molecule_2/molecule_2_with_pka.png
+  詳細資訊: molecule_2/info.txt
+
+--------------------------------------------------
+分子 3:
+SMILES: CC(C)S
+匹配的pKa值及對應官能基:
+  pKa = 10.86 => Thiol
+
+圖像檔案:
+  分子結構: molecule_3/molecule_3.png
+  含pKa標記: molecule_3/molecule_3_with_pka.png
+  詳細資訊: molecule_3/info.txt
+
+--------------------------------------------------
+分子 4:
+SMILES: CCS
+匹配的pKa值及對應官能基:
+  pKa = 10.61 => Thiol
+
+圖像檔案:
+  分子結構: molecule_4/molecule_4.png
+  含pKa標記: molecule_4/molecule_4_with_pka.png
+  詳細資訊: molecule_4/info.txt
+
+--------------------------------------------------
+分子 5:
+SMILES: Cn1ccnc1S
+匹配的pKa值及對應官能基:
+  pKa = 11.58 => Thiol (guess)
+
+圖像檔案:
+  分子結構: molecule_5/molecule_5.png
+  含pKa標記: molecule_5/molecule_5_with_pka.png
+  詳細資訊: molecule_5/info.txt
+
+--------------------------------------------------
+分子 6:
+SMILES: Cc1ccc(S)c(S)c1
+匹配的pKa值及對應官能基:
+  pKa = 11.00 => Thiol
+
+圖像檔案:
+  分子結構: molecule_6/molecule_6.png
+  含pKa標記: molecule_6/molecule_6_with_pka.png
+  詳細資訊: molecule_6/info.txt
+
+--------------------------------------------------
+分子 7:
+SMILES: SCCS
+匹配的pKa值及對應官能基:
+  pKa = 10.43 => Thiol
+
+圖像檔案:
+  分子結構: molecule_7/molecule_7.png
+  含pKa標記: molecule_7/molecule_7_with_pka.png
+  詳細資訊: molecule_7/info.txt
+
+--------------------------------------------------
+分子 8:
+SMILES: OC(=O)CCS
+匹配的pKa值及對應官能基:
+  pKa = 10.51 => Thiol
+
+圖像檔案:
+  分子結構: molecule_8/molecule_8.png
+  含pKa標記: molecule_8/molecule_8_with_pka.png
+  詳細資訊: molecule_8/info.txt
+
+--------------------------------------------------
+分子 9:
+SMILES: OCC(S)CS
+匹配的pKa值及對應官能基:
+  pKa = 10.65 => Thiol
+
+圖像檔案:
+  分子結構: molecule_9/molecule_9.png
+  含pKa標記: molecule_9/molecule_9_with_pka.png
+  詳細資訊: molecule_9/info.txt
+
+--------------------------------------------------
+分子 10:
+SMILES: OC(=O)CS
+匹配的pKa值及對應官能基:
+  pKa = 10.17 => Thiol
+
+圖像檔案:
+  分子結構: molecule_10/molecule_10.png
+  含pKa標記: molecule_10/molecule_10_with_pka.png
+  詳細資訊: molecule_10/info.txt
+
+--------------------------------------------------
+分子 11:
+SMILES: OC(=O)CC(S)C(O)=O
+匹配的pKa值及對應官能基:
+  pKa = 10.13 => Thiol
+
+圖像檔案:
+  分子結構: molecule_11/molecule_11.png
+  含pKa標記: molecule_11/molecule_11_with_pka.png
+  詳細資訊: molecule_11/info.txt
+
+--------------------------------------------------
+分子 12:
+SMILES: CC(C)(S)CNCCNCC(C)(C)S
+匹配的pKa值及對應官能基:
+  pKa = 10.99 => Thiol
+
+圖像檔案:
+  分子結構: molecule_12/molecule_12.png
+  含pKa標記: molecule_12/molecule_12_with_pka.png
+  詳細資訊: molecule_12/info.txt
+

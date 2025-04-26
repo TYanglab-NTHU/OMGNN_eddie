@@ -1,0 +1,11 @@
+SMILES: OCC(O[P](O)(=O)O[P](O)(O)=O)C(O)=O
+搜尋條件:
+  官能基類型: Alcohol
+
+匹配的pKa值:
+  pKa = 7.53 => Alcohol
+results: 
+  smiles: OCC(O[P](O)(=O)O[P](O)(O)=O)C(O)=O
+  pka_values: [3.19, 6.2, 7.53]
+  functional_groups: [{'type': 'PhosphonicAcid', 'indices': [5]}, {'type': 'PhosphonicAcid', 'indices': [9]}, {'type': 'PhosphonicAcid', 'indices': [10]}, {'type': 'COOH', 'indices': [13]}, {'type': 'Alcohol', 'indices': [0]}]
+  mapping: {3.19: {'type': 'COOH', 'indices': [13]}, 6.2: {'type': 'PhosphonicAcid', 'indices': [5]}, 7.53: {'type': 'Alcohol', 'indices': [0]}}

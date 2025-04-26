@@ -1,0 +1,13 @@
+SMILES: NC1=Nc2n(cnc2C(=O)N1)[C@@H]3O[C@H](CO)[C@@H](O)[C@H]3O
+搜尋條件:
+  官能基類型: PrimaryAmine
+  pKa最小值: 0.0
+  pKa最大值: 3.0
+
+匹配的pKa值:
+  pKa = 2.10 => PrimaryAmine
+results: 
+  smiles: NC1=Nc2n(cnc2C(=O)N1)[C@@H]3O[C@H](CO)[C@@H](O)[C@H]3O
+  pka_values: [2.1, 9.15]
+  functional_groups: [{'type': 'ImidazoleLike', 'indices': [4]}, {'type': 'ImidazoleLike', 'indices': [6]}, {'type': 'PrimaryAmine', 'indices': [0]}, {'type': 'AliphaticRingAlcohol', 'indices': [17]}, {'type': 'AliphaticRingAlcohol', 'indices': [19]}]
+  mapping: {2.1: {'type': 'PrimaryAmine', 'indices': [0]}, 9.15: {'type': 'ImidazoleLike (guess)', 'indices': [4]}}

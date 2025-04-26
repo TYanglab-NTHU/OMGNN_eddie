@@ -1,0 +1,11 @@
+SMILES: [nH]1cccn1
+搜尋條件:
+  官能基類型: PyrazoleNitrogen
+
+匹配的pKa值:
+  pKa = 2.63 => PyrazoleNitrogen
+results: 
+  smiles: [nH]1cccn1
+  pka_values: [2.63]
+  functional_groups: [{'type': 'PyrazoleNitrogen', 'indices': [0]}]
+  mapping: {2.63: {'type': 'PyrazoleNitrogen', 'indices': [0]}}

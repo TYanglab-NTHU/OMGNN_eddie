@@ -1,0 +1,12 @@
+SMILES: CN1CCN2CCNCCN(CC1)CCN(C)CC2
+搜尋條件:
+  官能基類型: TertiaryAmine
+  pKa最小值: 10.0
+
+匹配的pKa值:
+  pKa = 12.50 => TertiaryAmine
+results: 
+  smiles: CN1CCN2CCNCCN(CC1)CCN(C)CC2
+  pka_values: [9.05, 12.5]
+  functional_groups: [{'type': 'SecondaryAmine', 'indices': [7]}, {'type': 'TertiaryAmine', 'indices': [1]}, {'type': 'TertiaryAmine', 'indices': [4]}, {'type': 'TertiaryAmine', 'indices': [10]}, {'type': 'TertiaryAmine', 'indices': [15]}]
+  mapping: {9.05: {'type': 'SecondaryAmine', 'indices': [7]}, 12.5: {'type': 'TertiaryAmine', 'indices': [1]}}

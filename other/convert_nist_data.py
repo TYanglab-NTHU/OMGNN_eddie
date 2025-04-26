@@ -3,7 +3,7 @@ import os
 from rdkit import Chem
 from tqdm import tqdm
 import sys
-from pka_chemutils import predict_dissociable_atoms, get_dissociable_atoms_for_aromatics, fallback_smiles_analysis
+from self_pka_chemutils import predict_dissociable_atoms, get_dissociable_atoms_for_aromatics, fallback_smiles_analysis
 
 def convert_nist_data(input_file, output_file):
     """全面增強的NIST數據轉換函數，專門針對環狀結構優化"""

@@ -1,0 +1,12 @@
+SMILES: CC(C)(S)CNCCNCC(C)(C)S
+搜尋條件:
+  官能基類型: Thiol
+  pKa最小值: 10.0
+
+匹配的pKa值:
+  pKa = 10.99 => Thiol
+results: 
+  smiles: CC(C)(S)CNCCNCC(C)(C)S
+  pka_values: [5.56, 7.79, 9.72, 10.99]
+  functional_groups: [{'type': 'Thiol', 'indices': [3]}, {'type': 'Thiol', 'indices': [13]}, {'type': 'SecondaryAmine', 'indices': [5]}, {'type': 'SecondaryAmine', 'indices': [8]}]
+  mapping: {5.56: {'type': 'SecondaryAmine', 'indices': [5]}, 7.79: {'type': 'SecondaryAmine', 'indices': [8]}, 9.72: {'type': 'Thiol', 'indices': [3]}, 10.99: {'type': 'Thiol', 'indices': [13]}}

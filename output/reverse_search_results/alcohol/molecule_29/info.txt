@@ -1,0 +1,11 @@
+SMILES: NCCCC(O)([P](O)(O)=O)[P](O)(O)=O
+搜尋條件:
+  官能基類型: Alcohol
+
+匹配的pKa值:
+  pKa = 11.60 => Alcohol
+results: 
+  smiles: NCCCC(O)([P](O)(O)=O)[P](O)(O)=O
+  pka_values: [2.72, 8.73, 10.5, 11.6]
+  functional_groups: [{'type': 'Phosphate', 'indices': [7]}, {'type': 'Phosphate', 'indices': [8]}, {'type': 'Phosphate', 'indices': [11]}, {'type': 'Phosphate', 'indices': [12]}, {'type': 'PrimaryAmine', 'indices': [0]}, {'type': 'Alcohol', 'indices': [5]}]
+  mapping: {2.72: {'type': 'Phosphate', 'indices': [7]}, 8.73: {'type': 'PrimaryAmine', 'indices': [0]}, 10.5: {'type': 'Phosphate', 'indices': [8]}, 11.6: {'type': 'Alcohol', 'indices': [5]}}

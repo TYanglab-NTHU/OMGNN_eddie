@@ -1,0 +1,11 @@
+SMILES: CCC[S](O)(=O)=O
+搜尋條件:
+  官能基類型: SulfonicAcid
+
+匹配的pKa值:
+  pKa = 1.53 => SulfonicAcid
+results: 
+  smiles: CCC[S](O)(=O)=O
+  pka_values: [1.53]
+  functional_groups: [{'type': 'SulfonicAcid', 'indices': [4]}]
+  mapping: {1.53: {'type': 'SulfonicAcid', 'indices': [4]}}

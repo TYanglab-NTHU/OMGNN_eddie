@@ -1,0 +1,12 @@
+SMILES: SCCS
+搜尋條件:
+  官能基類型: Thiol
+  pKa最小值: 10.0
+
+匹配的pKa值:
+  pKa = 10.43 => Thiol
+results: 
+  smiles: SCCS
+  pka_values: [8.93, 10.43]
+  functional_groups: [{'type': 'Thiol', 'indices': [0]}, {'type': 'Thiol', 'indices': [3]}]
+  mapping: {8.93: {'type': 'Thiol', 'indices': [0]}, 10.43: {'type': 'Thiol', 'indices': [3]}}

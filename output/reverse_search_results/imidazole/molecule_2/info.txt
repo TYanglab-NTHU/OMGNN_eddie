@@ -1,0 +1,12 @@
+SMILES: CCc1[nH]cnc1CC
+搜尋條件:
+  官能基類型: Imidazole
+  pKa最小值: 8.0
+
+匹配的pKa值:
+  pKa = 8.19 => Imidazole
+results: 
+  smiles: CCc1[nH]cnc1CC
+  pka_values: [8.19]
+  functional_groups: [{'type': 'Imidazole', 'indices': [5]}]
+  mapping: {8.19: {'type': 'Imidazole', 'indices': [5]}}

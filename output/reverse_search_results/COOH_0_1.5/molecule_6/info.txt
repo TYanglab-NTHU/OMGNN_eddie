@@ -1,0 +1,13 @@
+SMILES: OC(=O)C#CC(O)=O
+搜尋條件:
+  官能基類型: COOH
+  pKa最小值: 0.0
+  pKa最大值: 1.5
+
+匹配的pKa值:
+  pKa = 0.70 => COOH
+results: 
+  smiles: OC(=O)C#CC(O)=O
+  pka_values: [0.7, 2.34]
+  functional_groups: [{'type': 'COOH', 'indices': [0]}, {'type': 'COOH', 'indices': [6]}]
+  mapping: {0.7: {'type': 'COOH', 'indices': [0]}, 2.34: {'type': 'COOH', 'indices': [6]}}

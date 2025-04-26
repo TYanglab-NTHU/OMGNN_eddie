@@ -1,0 +1,12 @@
+SMILES: CC(O)C(O)=S
+搜尋條件:
+  官能基類型: Alcohol
+
+匹配的pKa值:
+  pKa = 3.63 => Alcohol (guess)
+  pKa = 10.09 => Alcohol
+results: 
+  smiles: CC(O)C(O)=S
+  pka_values: [3.63, 10.09]
+  functional_groups: [{'type': 'Alcohol', 'indices': [2]}, {'type': 'Alcohol', 'indices': [4]}]
+  mapping: {3.63: {'type': 'Alcohol (guess)', 'indices': [2]}, 10.09: {'type': 'Alcohol', 'indices': [4]}}

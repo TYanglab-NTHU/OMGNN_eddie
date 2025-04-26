@@ -1,0 +1,98 @@
+==================================================
+pKa 反向搜尋結果摘要
+==================================================
+
+搜尋條件:
+  官能基類型: PrimaryAmine
+  pKa最小值: 12.0
+
+找到 8 個符合條件的分子
+
+--------------------------------------------------
+分子 1:
+SMILES: NC(N)=N
+匹配的pKa值及對應官能基:
+  pKa = 13.50 => PrimaryAmine
+
+圖像檔案:
+  分子結構: molecule_1/molecule_1.png
+  含pKa標記: molecule_1/molecule_1_with_pka.png
+  詳細資訊: molecule_1/info.txt
+
+--------------------------------------------------
+分子 2:
+SMILES: [H+].[Cl-].CN(C)C(=N)N=C(N)N
+匹配的pKa值及對應官能基:
+  pKa = 12.40 => PrimaryAmine
+
+圖像檔案:
+  分子結構: molecule_2/molecule_2.png
+  含pKa標記: molecule_2/molecule_2_with_pka.png
+  詳細資訊: molecule_2/info.txt
+
+--------------------------------------------------
+分子 3:
+SMILES: NC(=S)C(N)=S
+匹配的pKa值及對應官能基:
+  pKa = 13.10 => PrimaryAmine
+
+圖像檔案:
+  分子結構: molecule_3/molecule_3.png
+  含pKa標記: molecule_3/molecule_3_with_pka.png
+  詳細資訊: molecule_3/info.txt
+
+--------------------------------------------------
+分子 4:
+SMILES: NC(=N)NC(N)=N
+匹配的pKa值及對應官能基:
+  pKa = 13.00 => PrimaryAmine
+
+圖像檔案:
+  分子結構: molecule_4/molecule_4.png
+  含pKa標記: molecule_4/molecule_4_with_pka.png
+  詳細資訊: molecule_4/info.txt
+
+--------------------------------------------------
+分子 5:
+SMILES: NCC(O)c1ccc(O)c(O)c1
+匹配的pKa值及對應官能基:
+  pKa = 12.90 => PrimaryAmine
+
+圖像檔案:
+  分子結構: molecule_5/molecule_5.png
+  含pKa標記: molecule_5/molecule_5_with_pka.png
+  詳細資訊: molecule_5/info.txt
+
+--------------------------------------------------
+分子 6:
+SMILES: NCCc1ccc(O)c(O)c1
+匹配的pKa值及對應官能基:
+  pKa = 13.30 => PrimaryAmine
+
+圖像檔案:
+  分子結構: molecule_6/molecule_6.png
+  含pKa標記: molecule_6/molecule_6_with_pka.png
+  詳細資訊: molecule_6/info.txt
+
+--------------------------------------------------
+分子 7:
+SMILES: N[C@@H](CCCNC(N)=N)C(=O)NO
+匹配的pKa值及對應官能基:
+  pKa = 13.23 => PrimaryAmine
+
+圖像檔案:
+  分子結構: molecule_7/molecule_7.png
+  含pKa標記: molecule_7/molecule_7_with_pka.png
+  詳細資訊: molecule_7/info.txt
+
+--------------------------------------------------
+分子 8:
+SMILES: N[C@@H](Cc1ccc(O)c(O)c1)C(O)=O
+匹配的pKa值及對應官能基:
+  pKa = 13.40 => PrimaryAmine
+
+圖像檔案:
+  分子結構: molecule_8/molecule_8.png
+  含pKa標記: molecule_8/molecule_8_with_pka.png
+  詳細資訊: molecule_8/info.txt
+

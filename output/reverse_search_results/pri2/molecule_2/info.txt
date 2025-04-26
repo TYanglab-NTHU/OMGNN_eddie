@@ -1,0 +1,12 @@
+SMILES: [H+].[Cl-].CN(C)C(=N)N=C(N)N
+搜尋條件:
+  官能基類型: PrimaryAmine
+  pKa最小值: 12.0
+
+匹配的pKa值:
+  pKa = 12.40 => PrimaryAmine
+results: 
+  smiles: [H+].[Cl-].CN(C)C(=N)N=C(N)N
+  pka_values: [3.1, 12.4]
+  functional_groups: [{'type': 'SecondaryAmine', 'indices': [6]}, {'type': 'TertiaryAmine', 'indices': [3]}, {'type': 'PrimaryAmine', 'indices': [9]}, {'type': 'PrimaryAmine', 'indices': [10]}]
+  mapping: {3.1: {'type': 'SecondaryAmine (guess)', 'indices': [6]}, 12.4: {'type': 'PrimaryAmine', 'indices': [9]}}

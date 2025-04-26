@@ -1,0 +1,13 @@
+SMILES: Nc1cccc(c1)[P](O)(O)=O
+搜尋條件:
+  官能基類型: Phosphate
+  pKa最小值: 3.0
+  pKa最大值: 6.0
+
+匹配的pKa值:
+  pKa = 4.50 => Phosphate
+results: 
+  smiles: Nc1cccc(c1)[P](O)(O)=O
+  pka_values: [4.5, 7.53]
+  functional_groups: [{'type': 'Phosphate', 'indices': [8]}, {'type': 'Phosphate', 'indices': [9]}, {'type': 'PrimaryAmine', 'indices': [0]}]
+  mapping: {4.5: {'type': 'Phosphate', 'indices': [8]}, 7.53: {'type': 'PrimaryAmine', 'indices': [0]}}

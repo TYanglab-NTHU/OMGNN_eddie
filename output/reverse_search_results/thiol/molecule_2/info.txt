@@ -1,0 +1,13 @@
+SMILES: Fc1c(F)c(F)c(S)c(F)c1F
+搜尋條件:
+  官能基類型: Thiol
+  pKa最小值: 0.0
+  pKa最大值: 3.0
+
+匹配的pKa值:
+  pKa = 2.68 => Thiol
+results: 
+  smiles: Fc1c(F)c(F)c(S)c(F)c1F
+  pka_values: [2.68]
+  functional_groups: [{'type': 'Thiol', 'indices': [7]}]
+  mapping: {2.68: {'type': 'Thiol', 'indices': [7]}}

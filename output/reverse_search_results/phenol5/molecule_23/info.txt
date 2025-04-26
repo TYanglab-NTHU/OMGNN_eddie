@@ -1,0 +1,13 @@
+SMILES: Oc1cc(cc(c1O)[N+]([O-])=O)[N+]([O-])=O
+搜尋條件:
+  官能基類型: Phenol
+  pKa最小值: 0.0
+  pKa最大值: 7.5
+
+匹配的pKa值:
+  pKa = 3.35 => Phenol
+results: 
+  smiles: Oc1cc(cc(c1O)[N+]([O-])=O)[N+]([O-])=O
+  pka_values: [3.35, 9.83]
+  functional_groups: [{'type': 'Phenol', 'indices': [0]}, {'type': 'Phenol', 'indices': [7]}]
+  mapping: {3.35: {'type': 'Phenol', 'indices': [0]}, 9.83: {'type': 'Phenol', 'indices': [7]}}

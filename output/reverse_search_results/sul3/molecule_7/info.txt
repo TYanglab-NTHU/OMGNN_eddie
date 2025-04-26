@@ -1,0 +1,12 @@
+SMILES: Oc1ccc(cc1O)[S](O)(=O)=O
+搜尋條件:
+  官能基類型: SulfonicAcid
+  pKa最小值: 5.0
+
+匹配的pKa值:
+  pKa = 12.48 => SulfonicAcid (guess)
+results: 
+  smiles: Oc1ccc(cc1O)[S](O)(=O)=O
+  pka_values: [8.38, 12.48]
+  functional_groups: [{'type': 'SulfonicAcid', 'indices': [9]}, {'type': 'Phenol', 'indices': [0]}, {'type': 'Phenol', 'indices': [7]}]
+  mapping: {8.38: {'type': 'Phenol', 'indices': [0]}, 12.48: {'type': 'SulfonicAcid (guess)', 'indices': [9]}}

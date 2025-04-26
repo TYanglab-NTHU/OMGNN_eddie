@@ -1,0 +1,11 @@
+SMILES: CC(C)S
+搜尋條件:
+  官能基類型: Thiol
+
+匹配的pKa值:
+  pKa = 10.86 => Thiol
+results: 
+  smiles: CC(C)S
+  pka_values: [10.86]
+  functional_groups: [{'type': 'Thiol', 'indices': [3]}]
+  mapping: {10.86: {'type': 'Thiol', 'indices': [3]}}

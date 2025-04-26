@@ -1,0 +1,11 @@
+SMILES: CN(C)c1ccc(cc1)N=Nc2ccccc2[S](O)(=O)=O
+搜尋條件:
+  官能基類型: SulfonicAcid
+
+匹配的pKa值:
+  pKa = 3.49 => SulfonicAcid (guess)
+results: 
+  smiles: CN(C)c1ccc(cc1)N=Nc2ccccc2[S](O)(=O)=O
+  pka_values: [3.49]
+  functional_groups: [{'type': 'SulfonicAcid', 'indices': [18]}, {'type': 'TertiaryAmine', 'indices': [1]}]
+  mapping: {3.49: {'type': 'SulfonicAcid (guess)', 'indices': [18]}}

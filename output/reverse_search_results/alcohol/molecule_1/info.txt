@@ -1,0 +1,11 @@
+SMILES: Cn1c(CO)nc2ccccc12
+搜尋條件:
+  官能基類型: Alcohol
+
+匹配的pKa值:
+  pKa = 5.43 => Alcohol (guess)
+results: 
+  smiles: Cn1c(CO)nc2ccccc12
+  pka_values: [5.43]
+  functional_groups: [{'type': 'Alcohol', 'indices': [4]}]
+  mapping: {5.43: {'type': 'Alcohol (guess)', 'indices': [4]}}
