@@ -1,0 +1,47 @@
+;
+;	File 'topol.top' was generated
+;	By user: u5066474 (25476)
+;	On host: un-ln01.twcc.ai
+;	At date: Mon Apr 28 14:35:09 2025
+;
+;	This is a standalone topology file
+;
+;	Created by:
+;	                    :-) GROMACS - gmx pdb2gmx, 2022.2 (-:
+;	
+;	Executable:   /home/nickyang69/software/gromacs/2022.2/bin/gmx
+;	Data prefix:  /home/nickyang69/software/gromacs/2022.2
+;	Working dir:  /work/u5066474/NTHU/LiveTransForM-main/OMGNN/gromacs/week10
+;	Command line:
+;	  gmx pdb2gmx -f 1MK5_protein.pdb -o 1mk5-lig.gro -ignh -water spce
+;	Force field was read from current directory or a relative path - path added.
+;
+
+; Include forcefield parameters
+#include "./charmm36-jul2022.ff/forcefield.itp"
+
+; Include chain topologies
+#include "topol_Protein_chain_A.itp"
+#include "topol_Protein_chain_B.itp"
+
+; Include water topology
+#include "./charmm36-jul2022.ff/spce.itp"
+
+#ifdef POSRES_WATER
+; Position restraint for each water oxygen
+[ position_restraints ]
+;  i funct       fcx        fcy        fcz
+   1    1       1000       1000       1000
+#endif
+
+; Include topology for ions
+#include "./charmm36-jul2022.ff/ions.itp"
+
+[ system ]
+; Name
+STREPTAVIDIN
+
+[ molecules ]
+; Compound        #mols
+Protein_chain_A     1
+Protein_chain_B     1
